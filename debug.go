@@ -1,4 +1,4 @@
-package main
+package test_evm_pro
 
 import (
 	"fmt"
@@ -15,7 +15,10 @@ func main() {
 	fromBalance := utils.GetBalance(url, "0x42195C051eafc0E328a5e8AED9bB604a9569DCBc")
 	toBalance := utils.GetBalance(url, toAddress)
 	managerBalance := utils.GetBalance(url, "0x0000000000000000000000000000000000000007")
-	hash := deploy.SendTransfer(url, toAddress, big.NewInt(1000000000), uint64(200000))
+	testPrivateKeyStr :="7dfe9e235f852abdb5c5edd65527371fa9744391bd27d9129fadb932ac00f081"
+	//// 查nonce值
+	//nonce, err := ethClient.PendingNonceAt(context.Background(), addr)
+	hash := deploy.SendTransfer(url,testPrivateKeyStr, toAddress, big.NewInt(1000000000), uint64(200000))
 	fmt.Println(hash)
 	receipt := make(map[string]interface{})
 	for i := 0; i < 10; i++ { //设置10次请求，每次间隔3s 30s超时
