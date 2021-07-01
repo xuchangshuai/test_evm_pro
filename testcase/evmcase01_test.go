@@ -26,7 +26,10 @@ func TestEVMTransfer001(t *testing.T) {
 		toBalance := utils.GetBalance(url, toAddress)
 		managerBalance := utils.GetBalance(url, "0x0000000000000000000000000000000000000007")
 
-		hash := deploy.SendTransfer(url, fromPrivateKey, toAddress, amount, uint64(200000))
+		hash,err := deploy.SendTransfer(url, fromPrivateKey, toAddress, amount, uint64(200000))
+		if err != nil {
+			panic(err)
+		}
 		//fmt.Println(hash)
 		receipt := make(map[string]interface{})
 		for i := 0; i < 10; i++ { //设置10次请求，每次间隔3s 30s超时
@@ -83,7 +86,10 @@ func TestEVMTransfer002(t *testing.T) {
 		toBalance := utils.GetBalance(url, toAddress)
 		managerBalance := utils.GetBalance(url, "0x0000000000000000000000000000000000000007")
 
-		hash := deploy.SendTransfer(url, fromPrivateKey, toAddress, amount, uint64(200000))
+		hash,err := deploy.SendTransfer(url, fromPrivateKey, toAddress, amount, uint64(200000))
+		if err != nil {
+			panic(err)
+		}
 		//fmt.Println(hash)
 		receipt := make(map[string]interface{})
 		for i := 0; i < 10; i++ { //设置10次请求，每次间隔3s 30s超时
@@ -140,7 +146,10 @@ func TestEVMTransfer003(t *testing.T) {
 		toBalance := utils.GetBalance(url, toAddress)
 		managerBalance := utils.GetBalance(url, "0x0000000000000000000000000000000000000007")
 
-		hash := deploy.SendTransfer(url, fromPrivateKey, toAddress, amount, uint64(200000))
+		hash,err := deploy.SendTransfer(url, fromPrivateKey, toAddress, amount, uint64(200000))
+		if err != nil {
+			panic(err)
+		}
 		//fmt.Println(hash)
 		receipt := make(map[string]interface{})
 		for i := 0; i < 10; i++ { //设置10次请求，每次间隔3s 30s超时
@@ -197,7 +206,10 @@ func TestEVMTransfer004(t *testing.T) {
 		toBalance := utils.GetBalance(url, toAddress)
 		managerBalance := utils.GetBalance(url, "0x0000000000000000000000000000000000000007")
 
-		hash := deploy.SendTransfer(url, fromPrivateKey, toAddress, amount, uint64(200000))
+		hash,err := deploy.SendTransfer(url, fromPrivateKey, toAddress, amount, uint64(200000))
+		if err != nil {
+			panic(err)
+		}
 		//fmt.Println(hash)
 		receipt := make(map[string]interface{})
 		for i := 0; i < 10; i++ { //设置10次请求，每次间隔3s 30s超时

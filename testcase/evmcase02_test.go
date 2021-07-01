@@ -41,52 +41,47 @@ func TestEVMTransfer005(t *testing.T) {
 		// 查nonce值
 		nonce, err := ethClient.PendingNonceAt(context.Background(), fromAddress)
 		_checkErr(err)
-		fmt.Println(nonce)
 		_to := common.HexToAddress(toAddress)
 		gasPrice := big.NewInt(500)
 		//amount := big.NewInt(257000000000)
 		rawTx1 := types.NewTransaction(nonce, _to, amount, gasLimit, gasPrice, nil)
-		//rawTx2 := types.NewTransaction(nonce+1, _to, amount, gasLimit, gasPrice, nil)
-		hash1 := _singTransaction(chainId, fromPrivateKey, rawTx1,ethClient)
-		//var hash2 common.Hash
-		//go func() {
-		//	hash2 = _singTransaction(chainId, fromPrivateKey, rawTx2,ethClient)
-		//}()
+		rawTx2 := types.NewTransaction(nonce+1, _to, amount, gasLimit, gasPrice, nil)
+		hash1, _ := _singTransaction(chainId, fromPrivateKey, rawTx1, ethClient)
+		hash2, _ := _singTransaction(chainId, fromPrivateKey, rawTx2, ethClient)
 
 		fmt.Println("hash1: ", hash1)
-		//fmt.Println("hash2: ", hash2)
+		fmt.Println("hash2: ", hash2)
 
 		receipt1 := make(map[string]interface{})
-		//receipt2 := make(map[string]interface{})
+		receipt2 := make(map[string]interface{})
 		for i := 0; i < 10; i++ { //设置10次请求，每次间隔3s 30s超时
 			time.Sleep(3000000000)
 			if len(receipt1) != 0 {
 				break
 			} else {
 				receipt1 = utils.GetTransferInfo(url, hash1)
-				//receipt2 = utils.GetTransferInfo(url, hash2)
+				receipt2 = utils.GetTransferInfo(url, hash2)
 			}
 		}
 		fmt.Println("receipt1 : ", receipt1)
-		//fmt.Println("receipt2 : ", receipt2)
+		fmt.Println("receipt2 : ", receipt2)
 
-		//if len(receipt1) == 0 && len(receipt2) == 0 {
-		//	panic("交易30s未落账!")
-		//}
+		if len(receipt1) == 0 || len(receipt2) == 0 {
+			panic("交易30s未落账!")
+		}
 		status1 := utils.Strval(receipt1["status"])
-		//fmt.Println(status)
 		if status1 != "0x1" {
 			fmt.Println("status1 : ", status1)
 			panic("TxTransaction fail !!!")
 		}
 		fmt.Println("status: 1", status1)
-		//status2 := utils.Strval(receipt2["status"])
-		//So(status2, ShouldEqual, "0x0") // 断言第二笔交易状态是否为失败
+		status2 := utils.Strval(receipt2["status"])
+		So(status2, ShouldEqual, "0x0") // 断言第二笔交易状态是否为失败
 
 		useGas1 := utils.HexToDec(utils.Strval(receipt1["cumulativeGasUsed"]))
 		fmt.Println("useGas1 ", useGas1)
-		//useGas2 := utils.HexToDec(utils.Strval(receipt2["cumulativeGasUsed"]))
-		//fmt.Println("useGas2 ", useGas2)
+		useGas2 := utils.HexToDec(utils.Strval(receipt2["cumulativeGasUsed"]))
+		fmt.Println("useGas2 ", useGas2)
 		fromBalanceAfter := utils.GetBalance(url, fromAddress.String())
 		toBalanceAfter := utils.GetBalance(url, toAddress)
 		managerBalanceAfter := utils.GetBalance(url, "0x0000000000000000000000000000000000000007")
@@ -101,12 +96,18 @@ func TestEVMTransfer005(t *testing.T) {
 		//2.请求二EVM事务回滚，扣除消耗gas
 
 		//1 断言from账户资金是否 = fromBalance1 = fromBalance - gasUsed1 - gasUsed2 - amount
-		//fromBalance1 := fromBalanceAfter.Add(fromBalanceAfter, amount).Add(fromBalanceAfter, useGas1).Add(fromBalanceAfter, useGas2)
-		//So(fromBalance.Cmp(fromBalance1) == 0, ShouldBeTrue)
+		fmt.Println("useGas1",useGas1)
+		fmt.Println("useGas2",useGas2)
+		fmt.Println("amount",amount)
+		fromBalance1 := fromBalanceAfter.Add(fromBalanceAfter, amount).Add(fromBalanceAfter, useGas1).Add(fromBalanceAfter, useGas2)
+		fmt.Println(fromBalance1)
+
 		//2 断言to账户资金是否 = toBalance + amount
 		So(toBalanceAfter.Cmp(toBalance.Add(toBalance, amount)) == 0, ShouldBeTrue)
 		//3 断言治理合约地址是否正常获得消耗gas
-		//So(managerBalanceAfter.Cmp(managerBalance.Add(managerBalance, useGas1).Add(managerBalance, useGas2)) == 0, ShouldBeTrue)
+		So(managerBalanceAfter.Cmp(managerBalance.Add(managerBalance, useGas1).Add(managerBalance, useGas2)) == 0, ShouldBeTrue)
+
+		So(fromBalance.Cmp(fromBalance1) == 0, ShouldBeTrue)
 	})
 
 }
@@ -117,22 +118,20 @@ func _checkErr(err error) {
 	}
 }
 
-func _singTransaction(chainId *big.Int, fromPrivateKey string, rawTx *types.Transaction, ethClient *ethclient.Client) common.Hash {
+func _singTransaction(chainId *big.Int, fromPrivateKey string, rawTx *types.Transaction, ethClient *ethclient.Client) (common.Hash, error) {
 	signer := types.NewEIP155Signer(chainId) //big.NewInt(1)//当前入参链id
 	key, err := crypto.HexToECDSA(fromPrivateKey)
 	if err != nil {
-		fmt.Println("crypto.HexToECDSA failed: ", err.Error())
-		panic(err)
+		return common.Hash{}, err
 	}
 	//对交易对象做签名 0交易对象  1签名类型types.NewEIP155Signer(chainId)  2签名账户私钥
 	sigTransaction, err := types.SignTx(rawTx, signer, key)
 	if err != nil {
-		fmt.Println("types.SignTx failed: ", err.Error())
-		panic(err)
+		return common.Hash{}, err
 	}
-	//ethClient.Call()
-	err = ethClient.SendTransaction(context.Background(), sigTransaction)
-	_checkErr(err)
+	go func() {
+		err = ethClient.SendTransaction(context.Background(), sigTransaction)
+	}()
 	fmt.Println("tx hash(evm): ", sigTransaction.Hash())
-	return sigTransaction.Hash()
+	return sigTransaction.Hash(), nil
 }
