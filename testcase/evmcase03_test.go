@@ -18,7 +18,7 @@ import (
 func TestEVMTransfer006(t *testing.T) {
 	Convey("Test 前置发一笔正常交易", t, func() {
 		url := "http://127.0.0.1:20339"
-		toAddress := "0x5f9a233682e80e8bb1bfdf18cd21d82af2fd7edd"
+		toAddress := "0xf45505D1F482EBc8881dacA97B122B62771B9e1d"
 		amount := big.NewInt(1000000000)
 		//  备注
 		fromPrivateKey := "9b4600df58ea9f11c35b82ff660c819255ed5f71355eeef78bc994ccada4d862"
@@ -76,7 +76,7 @@ func TestEVMTransfer006(t *testing.T) {
 	})
 	Convey("Test006 测试EIP155交易普通转账ong时 nonce值错误(nonce-1) ", t, func() {
 		url := "http://127.0.0.1:20339"
-		toAddress := "0x5f9a233682e80e8bb1bfdf18cd21d82af2fd7edd"
+		toAddress := "0xf45505D1F482EBc8881dacA97B122B62771B9e1d"
 		amount := big.NewInt(500000000)
 		gasLimit := uint64(200000)
 		//  备注： 对应的MetaMask钱包第5个账户私钥
@@ -121,7 +121,7 @@ func TestEVMTransfer006(t *testing.T) {
 	})
 	Convey("Test007 测试EIP155交易普通转账ong时 nonce值错误(nonce+1) ", t, func() {
 		url := "http://127.0.0.1:20339"
-		toAddress := "0x5f9a233682e80e8bb1bfdf18cd21d82af2fd7edd"
+		toAddress := "0xf45505D1F482EBc8881dacA97B122B62771B9e1d"
 		amount := big.NewInt(500000000)
 		gasLimit := uint64(200000)
 		//  备注： 对应的MetaMask钱包第5个账户私钥

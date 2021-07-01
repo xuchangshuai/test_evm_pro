@@ -14,7 +14,7 @@ import (
 func TestEVMTransfer001(t *testing.T) {
 	Convey("Test001 测试EIP155交易普通转账ong ", t, func() {
 		url := "http://127.0.0.1:20339"
-		toAddress := "0x5f9a233682e80e8bb1bfdf18cd21d82af2fd7edd"
+		toAddress := "0xf45505D1F482EBc8881dacA97B122B62771B9e1d"
 		amount := big.NewInt(1000000000)
 		//  备注： 对应的MetaMask钱包第一个账户私钥
 		fromPrivateKey := "80a68081edc0aed4ddf8fa9f6a2e7cf8d0a69c998d4ef646f6446cbf4cfe9145"
@@ -74,7 +74,7 @@ func TestEVMTransfer001(t *testing.T) {
 func TestEVMTransfer002(t *testing.T) {
 	Convey("Test002 测试EIP155交易普通转账ong(amount:255) ", t, func() {
 		url := "http://127.0.0.1:20339"
-		toAddress := "0x5f9a233682e80e8bb1bfdf18cd21d82af2fd7edd"
+		toAddress := "0xf45505D1F482EBc8881dacA97B122B62771B9e1d"
 		amount := big.NewInt(255000000000)
 		//  备注： 对应的MetaMask钱包第一个账户私钥
 		fromPrivateKey := "80a68081edc0aed4ddf8fa9f6a2e7cf8d0a69c998d4ef646f6446cbf4cfe9145"
@@ -134,7 +134,7 @@ func TestEVMTransfer002(t *testing.T) {
 func TestEVMTransfer003(t *testing.T) {
 	Convey("Test003 测试EIP155交易普通转账ong(amount:256) ", t, func() {
 		url := "http://127.0.0.1:20339"
-		toAddress := "0x5f9a233682e80e8bb1bfdf18cd21d82af2fd7edd"
+		toAddress := "0xf45505D1F482EBc8881dacA97B122B62771B9e1d"
 		amount := big.NewInt(256000000000)
 		//  备注： 对应的MetaMask钱包第一个账户私钥
 		fromPrivateKey := "80a68081edc0aed4ddf8fa9f6a2e7cf8d0a69c998d4ef646f6446cbf4cfe9145"
@@ -194,7 +194,7 @@ func TestEVMTransfer003(t *testing.T) {
 func TestEVMTransfer004(t *testing.T) {
 	Convey("Test004 测试EIP155交易普通转账ong(amount:257) ", t, func() {
 		url := "http://127.0.0.1:20339"
-		toAddress := "0x5f9a233682e80e8bb1bfdf18cd21d82af2fd7edd"
+		toAddress := "0xf45505D1F482EBc8881dacA97B122B62771B9e1d"
 		amount := big.NewInt(257000000000)
 		//  备注： 对应的MetaMask钱包第一个账户私钥
 		fromPrivateKey := "80a68081edc0aed4ddf8fa9f6a2e7cf8d0a69c998d4ef646f6446cbf4cfe9145"
