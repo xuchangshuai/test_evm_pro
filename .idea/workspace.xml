@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a84f5e50-aa3e-4ac8-bb07-4336d1b7a2ef" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/re.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testcase/evmcase01_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testcase/evmcase02_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testcase/evmcase03_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Administrator.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ontology.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.go" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pythonUtils/getTransferInfo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/deploy/sendTransfer.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/deploy/sendTransfer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/evm_case_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/debug.go" afterDir="false" />
+    <list default="true" id="a84f5e50-aa3e-4ac8-bb07-4336d1b7a2ef" name="Default Changelist" comment="update sh">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/debug.go" beforeDir="false" afterPath="$PROJECT_DIR$/debug.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/re.sh" beforeDir="false" afterPath="$PROJECT_DIR$/re.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +22,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
   </component>
@@ -48,7 +46,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../evm-testcase" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -56,8 +54,8 @@
       <recent name="F:\test_project\test_evm_pro" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestEVMTransfer005 in test_evm/testcase">
-    <configuration name="TestEVMTransfer001 in test_evm/testcase" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.TestEVMTransfer009 in test_evm/testcase">
+    <configuration name="TestEVMTransfer006 in test_evm/testcase (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="test_evm_pro" />
       <working_directory value="$PROJECT_DIR$/testcase" />
       <root_directory value="$PROJECT_DIR$" />
@@ -66,10 +64,10 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestEVMTransfer001\E$" />
+      <pattern value="^\QTestEVMTransfer006\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestEVMTransfer002 in test_evm/testcase" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestEVMTransfer006 in test_evm/testcase" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="test_evm_pro" />
       <working_directory value="$PROJECT_DIR$/testcase" />
       <root_directory value="$PROJECT_DIR$" />
@@ -78,10 +76,10 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestEVMTransfer002\E$" />
+      <pattern value="^\QTestEVMTransfer006\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestEVMTransfer005 in test_evm/testcase" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestEVMTransfer008 in test_evm/testcase (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="test_evm_pro" />
       <working_directory value="$PROJECT_DIR$/testcase" />
       <root_directory value="$PROJECT_DIR$" />
@@ -90,10 +88,10 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestEVMTransfer005\E$" />
+      <pattern value="^\QTestEVMTransfer008\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="go test test_evm/testcase" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestEVMTransfer008 in test_evm/testcase" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="test_evm_pro" />
       <working_directory value="$PROJECT_DIR$/testcase" />
       <root_directory value="$PROJECT_DIR$" />
@@ -102,20 +100,50 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
+      <pattern value="^\QTestEVMTransfer008\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestEVMTransfer009 in test_evm/testcase" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="test_evm_pro" />
+      <working_directory value="$PROJECT_DIR$/testcase" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="test_evm/testcase" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestEVMTransfer009\E$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestEVMTransfer005 in test_evm/testcase" />
-        <item itemvalue="Go Test.TestEVMTransfer001 in test_evm/testcase" />
-        <item itemvalue="Go Test.go test test_evm/testcase" />
-        <item itemvalue="Go Test.TestEVMTransfer002 in test_evm/testcase" />
+        <item itemvalue="Go Test.TestEVMTransfer009 in test_evm/testcase" />
+        <item itemvalue="Go Test.TestEVMTransfer008 in test_evm/testcase (1)" />
+        <item itemvalue="Go Test.TestEVMTransfer006 in test_evm/testcase (1)" />
+        <item itemvalue="Go Test.TestEVMTransfer008 in test_evm/testcase" />
+        <item itemvalue="Go Test.TestEVMTransfer006 in test_evm/testcase" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update sh" />
+    <option name="LAST_COMMIT_MESSAGE" value="update sh" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
