@@ -1,8 +1,6 @@
 package example
 
-func main()  {
-	
-}
+
 //
 //import (
 //	"context"

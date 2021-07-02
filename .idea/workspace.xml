@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a84f5e50-aa3e-4ac8-bb07-4336d1b7a2ef" name="Default Changelist" comment="update sh">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/evmcase01_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/evmcase01_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/example/deploy_contract.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/example/deploy_contract.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/example/example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/example/example_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/example/send_transfer.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/example/send_transfer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/example/test_demo.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/example/test_demo.go" afterDir="false" />
-    </list>
+    <list default="true" id="a84f5e50-aa3e-4ac8-bb07-4336d1b7a2ef" name="Default Changelist" comment="update sh" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
