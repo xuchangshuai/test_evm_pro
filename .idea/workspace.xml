@@ -4,8 +4,6 @@
     <list default="true" id="a84f5e50-aa3e-4ac8-bb07-4336d1b7a2ef" name="Default Changelist" comment="update sh">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/re.sh" beforeDir="false" afterPath="$PROJECT_DIR$/re.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/evmcase02_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/evmcase02_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/evmcase03_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/evmcase03_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
