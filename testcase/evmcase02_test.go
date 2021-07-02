@@ -9,21 +9,65 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 	. "github.com/smartystreets/goconvey/convey"
 	"math/big"
+	"test_evm/testcase/deploy"
 	"test_evm/utils"
 	"testing"
 	"time"
 )
 
 func TestEVMTransfer005(t *testing.T) {
-	Convey("Test005 测试EIP155交易普通转账ong 并发(ong不足两次操作消耗和发送的数量)", t, func() {
+	Convey("Test005 前置 fromAddress账户资金准备1ong",t, func() {
+		url := "http://127.0.0.1:20339"
+		fromPrivateKey := "80a68081edc0aed4ddf8fa9f6a2e7cf8d0a69c998d4ef646f6446cbf4cfe9145"
+		toAddress := "0x69ed51D295cD121d279EfF97a227Ad510F61E3c0"
+		toBalance := utils.GetBalance(url, toAddress)
+		amount := big.NewInt(0)
+		if toBalance.Cmp(big.NewInt(1000000000)) == 0 {
+			return
+		}
+		amount.Sub(big.NewInt(1000000000), toBalance)
+		fmt.Println(amount)
+		hash, err := deploy.SendTransfer(url, fromPrivateKey, toAddress, amount, uint64(200000))
+		if err != nil {
+			panic(err)
+		}
+		//fmt.Println(hash)
+		receipt := make(map[string]interface{})
+		for i := 0; i < 10; i++ { //设置10次请求，每次间隔3s 30s超时
+			time.Sleep(3000000000)
+			if len(receipt) != 0 {
+				break
+			} else {
+				receipt = utils.GetTransferInfo(url, hash)
+			}
+		}
+		if len(receipt) == 0 {
+			panic("交易30s未落账!")
+		}
+		//fmt.Println(receipt)
+		status := utils.Strval(receipt["status"])
+		//fmt.Println(status)
+		if status != "0x1" {
+			fmt.Println("status : ", status)
+			panic("TxTransaction fail !!!")
+		}
+		toBalance = utils.GetBalance(url, toAddress)
+		//断言to账户资金是否为1
+		fmt.Println("toBalance: ",toBalance)
+		So(toBalance.Cmp(big.NewInt(1000000000)) == 0, ShouldBeTrue)
+
+	})
+	Convey("Test005 测试EIP155交易普通转账ong 并发(ong不足两次操作消耗和发送的数量)",t, func() {
 		url := "http://127.0.0.1:20339"
 		toAddress := "0xf45505D1F482EBc8881dacA97B122B62771B9e1d"
 		amount := big.NewInt(500000000)
 		gasLimit := uint64(200000)
-		//  备注： 对应的MetaMask钱包第5个账户私钥
+		//  备注
+		//0x69ed51D295cD121d279EfF97a227Ad510F61E3c0 //ARRxttxxivKVfzkfdC5T3FBNJTEDrvbT9X
 		fromPrivateKey := "4929d50ed435df55ad5f654a3fb8f67d75c50ae5aa95ed8a9ae62ffff48f90b9"
 		fromPrivate, _ := crypto.HexToECDSA(fromPrivateKey)
 		fromAddress := crypto.PubkeyToAddress(fromPrivate.PublicKey)
+		fmt.Println("fromAddress: ", fromAddress)
 
 		//交易前账户余额
 		fromBalance := utils.GetBalance(url, fromAddress.String())
@@ -96,9 +140,9 @@ func TestEVMTransfer005(t *testing.T) {
 		//2.请求二EVM事务回滚，扣除消耗gas
 
 		//1 断言from账户资金是否 = fromBalance1 = fromBalance - gasUsed1 - gasUsed2 - amount
-		fmt.Println("useGas1",useGas1)
-		fmt.Println("useGas2",useGas2)
-		fmt.Println("amount",amount)
+		fmt.Println("useGas1", useGas1)
+		fmt.Println("useGas2", useGas2)
+		fmt.Println("amount", amount)
 		fromBalance1 := fromBalanceAfter.Add(fromBalanceAfter, amount).Add(fromBalanceAfter, useGas1).Add(fromBalanceAfter, useGas2)
 		fmt.Println(fromBalance1)
 

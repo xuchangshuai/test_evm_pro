@@ -20,6 +20,7 @@ func TestEVMTransfer001(t *testing.T) {
 		fromPrivateKey := "80a68081edc0aed4ddf8fa9f6a2e7cf8d0a69c998d4ef646f6446cbf4cfe9145"
 		fromPrivate, _ := crypto.HexToECDSA(fromPrivateKey)
 		fromAddress := crypto.PubkeyToAddress(fromPrivate.PublicKey)
+		fmt.Println("fromAddress: ", fromAddress)
 
 		//交易前账户余额
 		fromBalance := utils.GetBalance(url, fromAddress.String())
