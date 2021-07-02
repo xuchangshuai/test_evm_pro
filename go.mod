@@ -5,7 +5,8 @@ go 1.12
 require (
 	github.com/ethereum/go-ethereum v1.9.25
 	github.com/ontio/ontology v1.13.2
-	github.com/smartystreets/goconvey v1.6.4 // indirect
+	github.com/ontio/ontology-go-sdk v1.11.8
+	github.com/smartystreets/goconvey v1.6.4
 )
 
 replace (

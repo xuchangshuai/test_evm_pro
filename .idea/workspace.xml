@@ -3,8 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="a84f5e50-aa3e-4ac8-bb07-4336d1b7a2ef" name="Default Changelist" comment="update sh">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/debug.go" beforeDir="false" afterPath="$PROJECT_DIR$/debug.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/re.sh" beforeDir="false" afterPath="$PROJECT_DIR$/re.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcase/evmcase01_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/evmcase01_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcase/example/deploy_contract.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/example/deploy_contract.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcase/example/example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/example/example_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcase/example/send_transfer.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/example/send_transfer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcase/example/test_demo.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/example/test_demo.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,28 +51,19 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../evm-testcase" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/testcase/example" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\test_project\test_evm_pro\testcase\example" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\test_project\test_evm_pro\testcase" />
       <recent name="F:\test_project\test_evm_pro" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestEVMTransfer009 in test_evm/testcase">
+  <component name="RunManager" selected="Go Test.TestExample in test_evm/testcase/example">
     <configuration name="TestEVMTransfer006 in test_evm/testcase (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="test_evm_pro" />
-      <working_directory value="$PROJECT_DIR$/testcase" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="test_evm/testcase" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestEVMTransfer006\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestEVMTransfer006 in test_evm/testcase" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="test_evm_pro" />
       <working_directory value="$PROJECT_DIR$/testcase" />
       <root_directory value="$PROJECT_DIR$" />
@@ -115,13 +111,25 @@
       <pattern value="^\QTestEVMTransfer009\E$" />
       <method v="2" />
     </configuration>
+    <configuration name="TestExample in test_evm/testcase/example" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="test_evm_pro" />
+      <working_directory value="$PROJECT_DIR$/testcase/example" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="test_evm/testcase/example" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestExample\E$" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestExample in test_evm/testcase/example" />
         <item itemvalue="Go Test.TestEVMTransfer009 in test_evm/testcase" />
         <item itemvalue="Go Test.TestEVMTransfer008 in test_evm/testcase (1)" />
         <item itemvalue="Go Test.TestEVMTransfer006 in test_evm/testcase (1)" />
         <item itemvalue="Go Test.TestEVMTransfer008 in test_evm/testcase" />
-        <item itemvalue="Go Test.TestEVMTransfer006 in test_evm/testcase" />
       </list>
     </recent_temporary>
   </component>

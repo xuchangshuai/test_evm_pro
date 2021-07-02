@@ -12,7 +12,7 @@ import (
 	"math/big"
 )
 
-func main() {
+func ma111in() {
 	//前置准备
 	ethClient, err := ethclient.Dial("http://127.0.0.1:20339") //实例化当前链对象
 	if err != nil {

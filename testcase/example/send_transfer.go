@@ -10,7 +10,7 @@ import (
 	"math/big"
 )
 
-func main() {
+func mai2n() {
 	fmt.Println("1")
 	// 构建一个私链对象
 	ethClient, err := ethclient.Dial("http://127.0.0.1:20339")
