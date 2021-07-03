@@ -12,19 +12,20 @@ import (
 	"github.com/ontio/ontology/common"
 	"math/big"
 	"strings"
+	"test_evm/config"
 )
 
 func test1() {
 	// 构建一个私链对象
 	ethClient, err := ethclient.Dial("http://127.0.0.1:20339")
-	defer ethClient.Close()
 	checkErrFromDeployContract(err)
+	defer ethClient.Close()
 	//查chainId
 	chainId, _ := ethClient.ChainID(context.Background())
 	fmt.Println("23ln chainId: ", chainId)
 	//0x42195C051eafc0E328a5e8AED9bB604a9569DCBc  AMoNdAWjcrFj5t1GyAx2vKiM6BkCmHaRS7
 	//0x0000000000000000000000000000000000000007  AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK    治理地址
-	testPrivateKeyStr := "80a68081edc0aed4ddf8fa9f6a2e7cf8d0a69c998d4ef646f6446cbf4cfe9145" //私钥 账户0x4219的私钥
+	testPrivateKeyStr := config.FromPrivate //私钥 账户0x4219的私钥
 	testPrivateKey, err := crypto.HexToECDSA(testPrivateKeyStr)
 	checkErrFromDeployContract(err)
 	fmt.Println("28ln  testPrivateKey:", testPrivateKey)

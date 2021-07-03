@@ -1,30 +1,17 @@
 package utils
 
 import (
-	"fmt"
+	"context"
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/rpc"
 	"math/big"
+	"test_evm/config"
+	"time"
 )
 
-func GetTransferInfo(url string, hash common.Hash) map[string]interface{} {
-	//url = "http://127.0.0.1:20339"
-	client, _ := rpc.Dial(url)
-	defer client.Close()
-	_receipt := make(map[string]interface{})
-	err := client.Call(&_receipt, "eth_getTransactionReceipt", hash)
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println("eth_getTransactionReceipt res :", _receipt)
-	status := HexToDec(Strval(_receipt["status"]))
-	fmt.Println("eth_getTransactionReceipt status :", status)
-	return _receipt
-}
-
-func GetBalance(url string, address string) *big.Int {
-	//url = "http://127.0.0.1:20339"
-	client, _ := rpc.Dial(url)
+func GetBalance(address string) *big.Int {
+	client, _ := rpc.Dial(config.URL)
 	defer client.Close()
 	var balance string
 	err := client.Call(&balance, "eth_getBalance", address, "latest")
@@ -33,4 +20,21 @@ func GetBalance(url string, address string) *big.Int {
 	}
 	res := HexToDec(balance) //16 to 10
 	return res
+}
+
+func GetTransferInfoByHash(hash common.Hash) (*types.Receipt, error) {
+	var resErr error
+	var res *types.Receipt
+	for i := 0; i < 10; i++ {
+		time.Sleep(3000000000) //设置10次请求，每次间隔3s 30s不落块超时 抛异常
+		receipt, err := config.GetEthClient().TransactionReceipt(context.Background(), hash)
+		if err == nil {
+			resErr = nil
+			res = receipt
+			break
+		} else {
+			resErr = err
+		}
+	}
+	return res, resErr
 }

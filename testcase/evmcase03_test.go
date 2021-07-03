@@ -6,60 +6,50 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/ethclient"
 	. "github.com/smartystreets/goconvey/convey"
 	"math/big"
+	"test_evm/config"
 	"test_evm/testcase/deploy"
 	"test_evm/utils"
 	"testing"
-	"time"
 )
 
 func TestEVMTransfer006(t *testing.T) {
 	Convey("Test 前置发一笔正常交易", t, func() {
-		url := "http://127.0.0.1:20339"
+
 		toAddress := "0xf45505D1F482EBc8881dacA97B122B62771B9e1d"
 		amount := big.NewInt(1000000000)
 		//  备注
-		fromPrivateKey := "80a68081edc0aed4ddf8fa9f6a2e7cf8d0a69c998d4ef646f6446cbf4cfe9145"
+		fromPrivateKey := config.FromPrivate
 		fromPrivate, _ := crypto.HexToECDSA(fromPrivateKey)
 		fromAddress := crypto.PubkeyToAddress(fromPrivate.PublicKey)
 		fmt.Println("fromAddress: ", fromAddress)
 
 		//交易前账户余额
-		fromBalance := utils.GetBalance(url, fromAddress.String())
-		toBalance := utils.GetBalance(url, toAddress)
-		managerBalance := utils.GetBalance(url, "0x0000000000000000000000000000000000000007")
+		fromBalance := utils.GetBalance(fromAddress.String())
+		toBalance := utils.GetBalance(toAddress)
+		managerBalance := utils.GetBalance("0x0000000000000000000000000000000000000007")
 
-		hash, err := deploy.SendTransfer(url, fromPrivateKey, toAddress, amount, uint64(200000))
+		hash, err := deploy.SendTransfer(fromPrivateKey, toAddress, amount, uint64(200000))
 		if err != nil {
 			panic(err)
 		}
 		//fmt.Println(hash)
-		receipt := make(map[string]interface{})
-		for i := 0; i < 10; i++ { //设置10次请求，每次间隔3s 30s超时
-			time.Sleep(3000000000)
-			if len(receipt) != 0 {
-				break
-			} else {
-				receipt = utils.GetTransferInfo(url, hash)
-			}
+		receipt, err := utils.GetTransferInfoByHash(hash)
+		if err != nil {
+			panic(err)
 		}
-		if len(receipt) == 0 {
-			panic("交易30s未落账!")
-		}
-		//fmt.Println(receipt)
-		status := utils.Strval(receipt["status"])
+
 		//fmt.Println(status)
-		if status != "0x1" {
-			fmt.Println("status : ", status)
+		if receipt.Status != 1 {
+			fmt.Println("receipt.Status : ", receipt.Status)
 			panic("TxTransaction fail !!!")
 		}
-		useGas := utils.HexToDec(utils.Strval(receipt["cumulativeGasUsed"]))
+		useGas := big.NewInt(int64(receipt.CumulativeGasUsed))
 		fmt.Println("useGas", useGas)
-		fromBalanceAfter := utils.GetBalance(url, fromAddress.String())
-		toBalanceAfter := utils.GetBalance(url, toAddress)
-		managerBalanceAfter := utils.GetBalance(url, "0x0000000000000000000000000000000000000007")
+		fromBalanceAfter := utils.GetBalance(fromAddress.String())
+		toBalanceAfter := utils.GetBalance(toAddress)
+		managerBalanceAfter := utils.GetBalance("0x0000000000000000000000000000000000000007")
 		fmt.Println("fromBalance", fromBalance)
 		fmt.Println("toBalance", toBalance)
 		fmt.Println("managerBalance", managerBalance)
@@ -75,23 +65,21 @@ func TestEVMTransfer006(t *testing.T) {
 		So(managerBalanceAfter.Cmp(managerBalance.Add(managerBalance, useGas)) == 0, ShouldBeTrue)
 	})
 	Convey("Test006 测试EIP155交易普通转账ong时 nonce值错误(nonce-1) ", t, func() {
-		url := "http://127.0.0.1:20339"
+
 		toAddress := "0xf45505D1F482EBc8881dacA97B122B62771B9e1d"
 		amount := big.NewInt(500000000)
 		gasLimit := uint64(200000)
 		//  备注： 对应的MetaMask钱包第5个账户私钥
-		fromPrivateKey := "80a68081edc0aed4ddf8fa9f6a2e7cf8d0a69c998d4ef646f6446cbf4cfe9145"
+		fromPrivateKey := config.FromPrivate
 		fromPrivate, _ := crypto.HexToECDSA(fromPrivateKey)
 		fromAddress := crypto.PubkeyToAddress(fromPrivate.PublicKey)
 
 		//交易前账户余额
-		fromBalance := utils.GetBalance(url, fromAddress.String())
-		managerBalance := utils.GetBalance(url, "0x0000000000000000000000000000000000000007")
+		fromBalance := utils.GetBalance(fromAddress.String())
+		managerBalance := utils.GetBalance("0x0000000000000000000000000000000000000007")
 
 		// 构建一个私链对象
-		ethClient, err := ethclient.Dial(url)
-		_checkErr(err)
-		defer ethClient.Close()
+		ethClient := config.GetEthClient()
 		//查chainId
 		chainId, err := ethClient.ChainID(context.Background())
 		_checkErr(err)
@@ -109,8 +97,8 @@ func TestEVMTransfer006(t *testing.T) {
 		fmt.Println(err)
 		// 断言nonce = nonce-1 构造的交易对象,发送交易抛异常
 		So(err, ShouldNotBeNil)
-		managerBalanceAfter := utils.GetBalance(url, "0x0000000000000000000000000000000000000007")
-		fromBalanceAfter := utils.GetBalance(url, fromAddress.String())
+		managerBalanceAfter := utils.GetBalance("0x0000000000000000000000000000000000000007")
+		fromBalanceAfter := utils.GetBalance(fromAddress.String())
 		fmt.Println("fromBalance: ", fromBalance)
 		fmt.Println("managerBalance: ", managerBalance)
 		fmt.Println("managerBalanceAfter: ", managerBalanceAfter)
@@ -120,24 +108,22 @@ func TestEVMTransfer006(t *testing.T) {
 
 	})
 	Convey("Test007 测试EIP155交易普通转账ong时 nonce值错误(nonce+1) ", t, func() {
-		url := "http://127.0.0.1:20339"
+
 		toAddress := "0xf45505D1F482EBc8881dacA97B122B62771B9e1d"
 		amount := big.NewInt(500000000)
 		gasLimit := uint64(200000)
 		//  备注： 对应的MetaMask钱包第5个账户私钥
-		fromPrivateKey := "80a68081edc0aed4ddf8fa9f6a2e7cf8d0a69c998d4ef646f6446cbf4cfe9145"
+		fromPrivateKey := config.FromPrivate
 		fromPrivate, _ := crypto.HexToECDSA(fromPrivateKey)
 		fromAddress := crypto.PubkeyToAddress(fromPrivate.PublicKey)
 
 		//交易前账户余额
-		fromBalance := utils.GetBalance(url, fromAddress.String())
-		toBalance := utils.GetBalance(url, toAddress)
-		managerBalance := utils.GetBalance(url, "0x0000000000000000000000000000000000000007")
+		fromBalance := utils.GetBalance(fromAddress.String())
+		toBalance := utils.GetBalance(toAddress)
+		managerBalance := utils.GetBalance("0x0000000000000000000000000000000000000007")
 
 		// 构建一个私链对象
-		ethClient, err := ethclient.Dial(url)
-		_checkErr(err)
-		defer ethClient.Close()
+		ethClient := config.GetEthClient()
 		//查chainId
 		chainId, err := ethClient.ChainID(context.Background())
 		_checkErr(err)
@@ -153,21 +139,12 @@ func TestEVMTransfer006(t *testing.T) {
 		_checkErr(err)
 		err = ethClient.SendTransaction(context.Background(), sigTransaction)
 		_checkErr(err)
-		receipt := make(map[string]interface{})
-		for i := 0; i < 10; i++ { //设置10次请求，每次间隔3s 30s超时
-			time.Sleep(3000000000)
-			if len(receipt) != 0 {
-				break
-			} else {
-				receipt = utils.GetTransferInfo(url, sigTransaction.Hash())
-			}
-		}
-		// nonce = nonce + 1 断言receipt查不到
-		So(len(receipt) == 0, ShouldBeTrue)
+		receipt, err := utils.GetTransferInfoByHash(sigTransaction.Hash())
+		So(err, ShouldBeError)
 
-		managerBalanceAfter := utils.GetBalance(url, "0x0000000000000000000000000000000000000007")
-		fromBalanceAfter := utils.GetBalance(url, fromAddress.String())
-		toBalanceAfter := utils.GetBalance(url, toAddress)
+		managerBalanceAfter := utils.GetBalance("0x0000000000000000000000000000000000000007")
+		fromBalanceAfter := utils.GetBalance(fromAddress.String())
+		toBalanceAfter := utils.GetBalance(toAddress)
 		fmt.Println("fromBalance: ", fromBalance)
 		fmt.Println("fromBalanceAfter: ", fromBalanceAfter)
 		fmt.Println("toBalance: ", toBalance)
@@ -186,33 +163,24 @@ func TestEVMTransfer006(t *testing.T) {
 		_checkErr(err)
 		err = ethClient.SendTransaction(context.Background(), sigTransaction1)
 		_checkErr(err)
-		receipt2 := make(map[string]interface{})
-		for i := 0; i < 10; i++ { //设置10次请求，每次间隔3s 30s超时
-			time.Sleep(3000000000)
-			if len(receipt2) != 0 {
-				break
-			} else {
-				receipt2 = utils.GetTransferInfo(url, sigTransaction1.Hash())
-			}
+		receipt2, err := utils.GetTransferInfoByHash(sigTransaction1.Hash())
+		if err != nil {
+			panic(err)
 		}
-		if len(receipt2) == 0 {
-			panic("交易30s未落账!")
-		}
-		//fmt.Println(receipt)
-		status := utils.Strval(receipt2["status"])
 		//fmt.Println(status)
-		if status != "0x1" {
-			fmt.Println("status : ", status)
+		if receipt2.Status != 1 {
+			fmt.Println("receipt2.Status : ", receipt2.Status)
 			panic("TxTransaction fail !!!")
 		}
-		receipt = utils.GetTransferInfo(url, sigTransaction.Hash())
-		fmt.Println("receipt: ", receipt)
-		useGas := utils.HexToDec(utils.Strval(receipt["cumulativeGasUsed"]))//原nonce+=1case发送的交易收据
-
-		useGas1 := utils.HexToDec(utils.Strval(receipt2["cumulativeGasUsed"]))
-		managerBalanceAfter = utils.GetBalance(url, "0x0000000000000000000000000000000000000007")
-		fromBalanceAfter = utils.GetBalance(url, fromAddress.String())
-		toBalanceAfter = utils.GetBalance(url, toAddress)
+		receipt, err = utils.GetTransferInfoByHash(sigTransaction.Hash())
+		if err != nil {
+			panic(err)
+		}
+		useGas := big.NewInt(int64(receipt.CumulativeGasUsed)) //原nonce+=1case发送的交易收据
+		useGas1 := big.NewInt(int64(receipt2.CumulativeGasUsed))
+		managerBalanceAfter = utils.GetBalance("0x0000000000000000000000000000000000000007")
+		fromBalanceAfter = utils.GetBalance(fromAddress.String())
+		toBalanceAfter = utils.GetBalance(toAddress)
 
 		fmt.Println("useGas1", useGas1)
 		fmt.Println("fromBalance", fromBalance)
@@ -221,7 +189,6 @@ func TestEVMTransfer006(t *testing.T) {
 		fmt.Println("fromBalanceAfter", fromBalanceAfter)
 		fmt.Println("toBalanceAfter", toBalanceAfter)
 		fmt.Println("managerBalanceAfter", managerBalanceAfter)
-
 
 		fromBalance1 := fromBalanceAfter.Add(fromBalanceAfter, amount).Add(fromBalanceAfter, useGas1).Add(fromBalanceAfter, amount).Add(fromBalanceAfter, useGas)
 		So(fromBalance.Cmp(fromBalance1) == 0, ShouldBeTrue)

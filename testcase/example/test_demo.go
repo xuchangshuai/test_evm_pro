@@ -10,6 +10,7 @@ import (
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"math/big"
+	"test_evm/config"
 )
 
 func ma111in() {
@@ -30,7 +31,7 @@ func ma111in() {
 	}
 	fmt.Println("nonce: ", nonce)
 	//私钥
-	key, err := crypto.HexToECDSA("80a68081edc0aed4ddf8fa9f6a2e7cf8d0a69c998d4ef646f6446cbf4cfe9145")
+	key, err := crypto.HexToECDSA(config.FromPrivate)
 	if err != nil {
 		fmt.Println("crypto.HexToECDSA failed: ", err.Error())
 		return

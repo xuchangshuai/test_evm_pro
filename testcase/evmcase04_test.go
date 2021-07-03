@@ -5,92 +5,70 @@ import (
 	"github.com/ethereum/go-ethereum/crypto"
 	. "github.com/smartystreets/goconvey/convey"
 	"math/big"
+	"test_evm/config"
 	"test_evm/testcase/deploy"
 	"test_evm/utils"
 	"testing"
-	"time"
 )
 
 func TestEVMTransfer008(t *testing.T) {
 	Convey("Test008 测试EIP155交易 - 部署合约 - 往合约转账 {断言账户资金变动 治理地址手续费情况}", t, func() {
-		url := "http://127.0.0.1:20339"
+
 		// 备注: 对应的MetaMask钱包第一个账户私钥
-		fromPrivateKey := "80a68081edc0aed4ddf8fa9f6a2e7cf8d0a69c998d4ef646f6446cbf4cfe9145"
+		fromPrivateKey := config.FromPrivate
 		fromPrivate, _ := crypto.HexToECDSA(fromPrivateKey)
 		fromAddress := crypto.PubkeyToAddress(fromPrivate.PublicKey)
 		fmt.Println("fromAddress: ", fromAddress)
-		fromBalance := utils.GetBalance(url, fromAddress.String())
-		managerBalance := utils.GetBalance(url, "0x0000000000000000000000000000000000000007")
+		fromBalance := utils.GetBalance(fromAddress.String())
+		managerBalance := utils.GetBalance("0x0000000000000000000000000000000000000007")
 
 		abi, err := utils.ReadAll("deploy/outputCont/OutputCont_sol_OutputContract.abi")
 		_checkErr(err)
 		bin, err := utils.ReadAll("deploy/outputCont/OutputCont_sol_OutputContract.bin")
 		_checkErr(err)
-		hash := deploy.ContractDeploy(url, string(bin), string(abi))
+		hash := deploy.ContractDeploy(string(bin), string(abi))
 		fmt.Println("hash: ", hash)
-		receipt := make(map[string]interface{})
-		for i := 0; i < 10; i++ { //设置10次请求，每次间隔3s 30s超时
-			time.Sleep(3000000000)
-			if len(receipt) != 0 {
-				break
-			} else {
-				receipt = utils.GetTransferInfo(url, hash)
-			}
-		}
-		if len(receipt) == 0 {
-			panic("交易30s未落账!")
+		receipt, err := utils.GetTransferInfoByHash(hash)
+		if err != nil {
+			panic(err)
 		}
 
 		fmt.Println("receipt: ", receipt)
-		deployContractUseGas := utils.HexToDec(utils.Strval(receipt["cumulativeGasUsed"]))
+		deployContractUseGas := big.NewInt(int64(receipt.CumulativeGasUsed))
 		fmt.Println("deployContractUseGas: ", deployContractUseGas)
-		managerBalanceAfter := utils.GetBalance(url, "0x0000000000000000000000000000000000000007")
-		fmt.Println( "managerBalanceAfter: ", managerBalanceAfter)
+		managerBalanceAfter := utils.GetBalance("0x0000000000000000000000000000000000000007")
+		fmt.Println("managerBalanceAfter: ", managerBalanceAfter)
 		//断言部署合约手续费
 		So(managerBalanceAfter.Cmp(managerBalance.Add(managerBalance, deployContractUseGas)) == 0, ShouldBeTrue)
-		status := utils.Strval(receipt["status"])
-		//fmt.Println(status)
-		if status != "0x1" {
-			fmt.Println("status : ", status)
+		if receipt.Status != 1 {
+			fmt.Println("receipt.Status : ", receipt.Status)
 			panic("TxTransaction fail !!!")
 		}
-
 		//交易后账户余额
-		fromBalanceAfter := utils.GetBalance(url, fromAddress.String())
+		fromBalanceAfter := utils.GetBalance(fromAddress.String())
 		fromBalanceAfterRes := *fromBalanceAfter
 		fmt.Println("fromBalanceFirstAfter: ", fromBalanceAfter)
 		So(fromBalance.Cmp(fromBalanceAfterRes.Add(&fromBalanceAfterRes, deployContractUseGas)) == 0, ShouldBeTrue)
-		contractAddress := utils.Strval(receipt["contractAddress"])
-		fmt.Println("contractAddress: ",contractAddress)
-		contractAddressBalance := utils.GetBalance(url, contractAddress)
+		contractAddress := receipt.ContractAddress
+		fmt.Println("contractAddress: ", contractAddress.String())
+		contractAddressBalance := utils.GetBalance(contractAddress.String())
 		fmt.Println("contractAddressBalance: ", contractAddressBalance)
 
 		amount := big.NewInt(1000000000)
-		txHash,err := deploy.SendTransfer(url, fromPrivateKey, contractAddress, amount, uint64(200000))
+		txHash, err := deploy.SendTransfer(fromPrivateKey, contractAddress.String(), amount, uint64(200000))
 		_checkErr(err)
-		txReceipt := make(map[string]interface{})
-		for i := 0; i < 10; i++ { //设置10次请求，每次间隔3s 30s超时
-			time.Sleep(3000000000)
-			if len(txReceipt) != 0 {
-				break
-			} else {
-				txReceipt = utils.GetTransferInfo(url, txHash)
-			}
+		txReceipt, err := utils.GetTransferInfoByHash(txHash)
+		if err != nil {
+			panic(err)
 		}
-		if len(txReceipt) == 0 {
-			panic("交易30s未落账!")
-		}
-		fmt.Println(txReceipt)
-		txStatus := utils.Strval(txReceipt["status"])
-		//fmt.Println(status)
-		if txStatus != "0x1" {
-			fmt.Println("txStatus : ", txStatus)
+		if txReceipt.Status != 1 {
+			fmt.Println("txReceipt.Status : ", txReceipt.Status)
 			panic("TxTransaction fail !!!")
 		}
-		useGas := utils.HexToDec(utils.Strval(txReceipt["cumulativeGasUsed"]))
-		fromBalanceSecondAfter := utils.GetBalance(url, fromAddress.String())
-		contractAddressBalanceAfter := utils.GetBalance(url, contractAddress)
-		managerBalanceSecondAfter := utils.GetBalance(url, "0x0000000000000000000000000000000000000007")
+		useGas := big.NewInt(int64(txReceipt.CumulativeGasUsed))
+		fromBalanceSecondAfter := utils.GetBalance(fromAddress.String())
+		contractAddressBalanceAfter := utils.GetBalance(contractAddress.String())
+		managerBalanceSecondAfter := utils.GetBalance("0x0000000000000000000000000000000000000007")
 
 		//1 断言合约账户账户资金是否 = contractAddressBalance + amount
 		So(contractAddressBalanceAfter.Cmp(contractAddressBalance.Add(contractAddressBalance, amount)) == 0, ShouldBeTrue)

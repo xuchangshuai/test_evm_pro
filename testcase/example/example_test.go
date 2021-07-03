@@ -2,22 +2,51 @@ package example
 
 import (
 	"fmt"
-	"github.com/ontio/ontology/common"
-	"testing"
-
-	goSdk "github.com/ontio/ontology-go-sdk"
+	"github.com/ethereum/go-ethereum/crypto"
 	. "github.com/smartystreets/goconvey/convey"
+	"math/big"
+	"test_evm/config"
+	"test_evm/testcase/deploy"
+	"test_evm/utils"
+	"testing"
 )
 
 func TestExample(t *testing.T) {
 	Convey("TestTestExample", t, func() {
 		// 得到SDK的实例
-		ontSdk := goSdk.NewOntologySdk()
-		ontSdk.NewRpcClient().SetAddress("http://localhost:20336")
-		// 生成native合约调用交易; 如果想调用NEO VM合约，可以使用NewNeoVMSInvokeTransaction方法
-		addr,_ := common.AddressFromHexString("Ae9mEb7VZQj1Pd4rsFZytzhnUNJ95JnbmT")
-		res,_ := ontSdk.Native.Ong.BalanceOf(addr)
-		fmt.Println(res)
+		//ontSdk := goSdk.NewOntologySdk()
+		//ontSdk.NewRpcClient().SetAddress("http://localhost:20336")
+		//// 生成native合约调用交易; 如果想调用NEO VM合约，可以使用NewNeoVMSInvokeTransaction方法
+		//addr,_ := common.AddressFromHexString("Ae9mEb7VZQj1Pd4rsFZytzhnUNJ95JnbmT")
+		//res,_ := ontSdk.Native.Ong.BalanceOf(addr)
+		//fmt.Println(res)
+		//ethcli, err := ethclient.Dial(config.URL)
+		//if err != nil {
+		//	panic(err)
+		//}
+
+		url := config.URL
+		toAddress := "0x0000000000000000000000000000000000000007"
+		amount := big.NewInt(1000000000)
+		//  备注
+		fromPrivateKey := config.FromPrivate
+		fromPrivate, _ := crypto.HexToECDSA(fromPrivateKey)
+		fromAddress := crypto.PubkeyToAddress(fromPrivate.PublicKey)
+		fmt.Println("fromAddress: ", fromAddress)
+
+		//交易前账户余额
+		//fromBalance := utils.GetBalance(url, fromAddress.String())
+		//toBalance := utils.GetBalance(url, toAddress)
+		//managerBalance := utils.GetBalance(url, "0x0000000000000000000000000000000000000007")
+
+		hash, err := deploy.SendTransfer(url, fromPrivateKey, toAddress, amount, uint64(200000))
+		if err != nil {
+			panic(err)
+		}
+		res, err := utils.GetTransferInfoByHash(hash)
+		fmt.Println(err)
+		fmt.Println(res.Status)
+
 		// cversion 为合约的版本, method 是要调用的合约方法名, params 是该方法需要的参数
 		// 例如：
 		// NewNativeInvokeTransaction(0, 200000, byte(0),utils.ParamContractAddress,
@@ -51,7 +80,7 @@ func TestExample(t *testing.T) {
 		//fmt.Println(account.PublicKey)
 		//fmt.Println(common.PubKeyToHex(account.PublicKey))
 
-		//url := "http://127.0.0.1:20339"
+		//url :=  config.URL
 		//toAddress := "0xf45505D1F482EBc8881dacA97B122B62771B9e1d"
 		//amount := big.NewInt(1000000000)
 		//  备注： 对应的MetaMask钱包第一个账户私钥

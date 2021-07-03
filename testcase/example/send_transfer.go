@@ -8,6 +8,7 @@ import (
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"math/big"
+	"test_evm/config"
 )
 
 func mai2n() {
@@ -22,7 +23,7 @@ func mai2n() {
 	fmt.Println("23ln chainId: ", chainId)
 	//0x42195C051eafc0E328a5e8AED9bB604a9569DCBc  AMoNdAWjcrFj5t1GyAx2vKiM6BkCmHaRS7
 	//0x0000000000000000000000000000000000000007  AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK    治理地址
-	testPrivateKeyStr := "80a68081edc0aed4ddf8fa9f6a2e7cf8d0a69c998d4ef646f6446cbf4cfe9145" //
+	testPrivateKeyStr := config.FromPrivate //
 	testPrivateKey, err := crypto.HexToECDSA(testPrivateKeyStr)
 	checkErrFromSendTransfer(err)
 	fmt.Println("28ln  testPrivateKey:", testPrivateKey)

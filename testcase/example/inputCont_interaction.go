@@ -7,6 +7,7 @@ import (
 	ethCommon "github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
+	"test_evm/config"
 	"test_evm/testcase/deploy/inputCont"
 
 	//"github.com/ontio/ontology/test/testcase/deploy/inputCont"
@@ -22,7 +23,7 @@ func inputContInteraction() {
 		panic(err)
 	}
 	fmt.Println("outputCont :", cont)
-	testPrivateKeyStr := "80a68081edc0aed4ddf8fa9f6a2e7cf8d0a69c998d4ef646f6446cbf4cfe9145" //
+	testPrivateKeyStr := config.FromPrivate //
 	testPrivateKey, err := crypto.HexToECDSA(testPrivateKeyStr)
 	if err != nil {
 		panic(err)
