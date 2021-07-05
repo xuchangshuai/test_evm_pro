@@ -18,7 +18,6 @@ import (
 func TestEVMTransfer009(t *testing.T) {
 	Convey("Test008 测试EIP155交易 - 部署合约 - 往合约转账A(合约内部往合约B转账) {断言账户资金变动 治理地址手续费情况}", t, func() {
 		ethClient:=config.GetEthClient()
-		defer ethClient.Close()
 		chainId, err := ethClient.ChainID(context.Background())
 		_checkErr(err)
 
@@ -47,7 +46,7 @@ func TestEVMTransfer009(t *testing.T) {
 		_checkErr(err)
 		inputContractBin, err := utils.ReadAll("deploy/inputCont/InputCont_sol_InputContract.bin")
 		_checkErr(err)
-		inputContractHash := deploy.ContractDeploy(  string(inputContractBin), string(inputContractAbi), common.HexToAddress(outputContractAddress))
+		inputContractHash := deploy.ContractDeploy(string(inputContractBin), string(inputContractAbi), common.HexToAddress(outputContractAddress))
 		fmt.Println("inputContractHash: ", inputContractHash)
 		inputContractReceipt,err:=utils.GetTransferInfoByHash(inputContractHash)
 		_checkErr(err)

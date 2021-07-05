@@ -9,6 +9,7 @@ import (
 	ethCommon "github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
+	"log"
 	"math/big"
 	"strings"
 	"test_evm/config"
@@ -16,8 +17,8 @@ import (
 
 func ContractDeploy(bin string, abi string, params ...interface{}) ethCommon.Hash {
 
-	fmt.Println("bin: ", bin)
-	fmt.Println("abi: ", abi)
+	//fmt.Println("bin: ", bin)
+	//fmt.Println("abi: ", abi)
 
 	// 构建一个私链对象
 	ethClient := config.GetEthClient()
@@ -39,7 +40,6 @@ func ContractDeploy(bin string, abi string, params ...interface{}) ethCommon.Has
 	//fmt.Println("35ln nonce :", nonce)
 	//to := ethCommon.HexToAddress("0xbc6c5e45ed2eb101b26eff56da0a0e8827ef78a9") //私链第二个账户:AYxAW7xXTNQVPE44wtgopcmrXt9vBJCJrV
 	//contractAddress = ethCommon.HexToAddress("0xf218394768660e1ae1e12f9f881b73e0c6125a7e")
-	// 合约文件
 	opts, err := bind.NewKeyedTransactorWithChainID(testPrivateKey, chainId)
 	_checkErr(err)
 	opts.Nonce = big.NewInt(int64(nonce))
@@ -61,9 +61,11 @@ func _newDeployEvmContract(opts *bind.TransactOpts, code []byte, jsonABI string,
 	parsed, err := abi.JSON(strings.NewReader(jsonABI))
 	_checkErr(err)
 	input, err := parsed.Pack("", params...)
-	//fmt.Println("input :", input)
+	fmt.Println("input :", input)
 	_checkErr(err)
 	input = append(code, input...)
+	log.Print("input: ")
+	log.Println(input)
 	deployTx := types.NewContractCreation(opts.Nonce.Uint64(), opts.Value, opts.GasLimit, opts.GasPrice, input)
 	signedTx, err := opts.Signer(opts.From, deployTx)
 	_checkErr(err)

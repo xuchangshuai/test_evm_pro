@@ -25,7 +25,6 @@ func TestExample(t *testing.T) {
 		//	panic(err)
 		//}
 
-		url := config.URL
 		toAddress := "0x0000000000000000000000000000000000000007"
 		amount := big.NewInt(1000000000)
 		//  备注
@@ -39,7 +38,7 @@ func TestExample(t *testing.T) {
 		//toBalance := utils.GetBalance(url, toAddress)
 		//managerBalance := utils.GetBalance(url, "0x0000000000000000000000000000000000000007")
 
-		hash, err := deploy.SendTransfer(url, fromPrivateKey, toAddress, amount, uint64(200000))
+		hash, err := deploy.SendTransfer(fromPrivateKey, toAddress, amount, uint64(200000))
 		if err != nil {
 			panic(err)
 		}
