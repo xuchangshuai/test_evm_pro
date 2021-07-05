@@ -2,23 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a84f5e50-aa3e-4ac8-bb07-4336d1b7a2ef" name="Default Changelist" comment="update sh">
-      <change afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/deploy/deployContract.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/deploy/deployContract.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/re.sh" beforeDir="false" afterPath="$PROJECT_DIR$/re.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testcase/deploy/sendTransfer.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/deploy/sendTransfer.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testcase/evmcase01_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/evmcase01_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/evmcase02_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/evmcase02_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/evmcase03_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/evmcase03_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/evmcase04_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/evmcase04_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/evmcase05_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/evmcase05_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/example/contract_interaction.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/example/contract_interaction.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/example/deploy_contract.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/example/deploy_contract.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/example/example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/example/example_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/example/inputCont_interaction.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/example/inputCont_interaction.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/example/send_transfer.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/example/send_transfer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/example/test_demo.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/example/test_demo.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/HexToDec.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/HexToDec.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/sendRequest.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/sendRequest.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,8 +59,8 @@
       <recent name="F:\test_project\test_evm_pro" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestEVMTransfer009 in test_evm/testcase">
-    <configuration name="TestEVMTransfer001 in test_evm/testcase" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.TestEVMTransfer001 in test_evm/testcase (1)">
+    <configuration name="TestEVMTransfer001 in test_evm/testcase (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="test_evm_pro" />
       <working_directory value="$PROJECT_DIR$/testcase" />
       <root_directory value="$PROJECT_DIR$" />
@@ -135,11 +122,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestEVMTransfer001 in test_evm/testcase (1)" />
         <item itemvalue="Go Test.TestEVMTransfer009 in test_evm/testcase" />
         <item itemvalue="Go Test.TestEVMTransfer008 in test_evm/testcase" />
         <item itemvalue="Go Test.TestEVMTransfer006 in test_evm/testcase" />
         <item itemvalue="Go Test.TestEVMTransfer005 in test_evm/testcase (1)" />
-        <item itemvalue="Go Test.TestEVMTransfer001 in test_evm/testcase" />
       </list>
     </recent_temporary>
   </component>

@@ -2,12 +2,12 @@ package testcase
 
 import (
 	"context"
-	"fmt"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
 	. "github.com/smartystreets/goconvey/convey"
+	"log"
 	"math/big"
 	"test_evm/config"
 	"test_evm/testcase/deploy"
@@ -26,7 +26,7 @@ func TestEVMTransfer005(t *testing.T) {
 			return
 		}
 		amount.Sub(big.NewInt(1000000000), toBalance)
-		fmt.Println("amount: ", amount)
+		log.Printf("amount: %d", amount)
 		hash, err := deploy.SendTransfer(fromPrivateKey, toAddress, amount, uint64(200000))
 		if err != nil {
 			panic(err)
@@ -37,12 +37,12 @@ func TestEVMTransfer005(t *testing.T) {
 			panic(err)
 		}
 		if receipt.Status != 1 {
-			fmt.Println("receipt.Status: ", receipt.Status)
+			log.Printf("receipt.Status: %d", receipt.Status)
 			panic("交易30s未落账!")
 		}
 		toBalance = utils.GetBalance(toAddress)
 		//断言to账户资金是否为1
-		fmt.Println("toBalance: ", toBalance)
+		log.Printf("toBalance: %d", toBalance)
 		So(toBalance.Cmp(big.NewInt(1000000000)) == 0, ShouldBeTrue)
 
 	})
@@ -56,11 +56,11 @@ func TestEVMTransfer005(t *testing.T) {
 		fromPrivateKey := "4929d50ed435df55ad5f654a3fb8f67d75c50ae5aa95ed8a9ae62ffff48f90b9"
 		fromPrivate, _ := crypto.HexToECDSA(fromPrivateKey)
 		fromAddress := crypto.PubkeyToAddress(fromPrivate.PublicKey)
-		fmt.Println("fromAddress: ", fromAddress)
+		log.Printf("fromAddress: %s", fromAddress.String())
 
 		//交易前账户余额
 		fromBalance := utils.GetBalance(fromAddress.String())
-		fmt.Println("fromBalance : ", fromBalance)
+		log.Printf("fromBalance : %d", fromBalance)
 		toBalance := utils.GetBalance(toAddress)
 		managerBalance := utils.GetBalance("0x0000000000000000000000000000000000000007")
 
@@ -71,7 +71,7 @@ func TestEVMTransfer005(t *testing.T) {
 		_checkErr(err)
 		// 查nonce值
 		nonce, err := ethClient.PendingNonceAt(context.Background(), fromAddress)
-		fmt.Println("nonce: ", nonce)
+		log.Printf("nonce: %d", nonce)
 		_checkErr(err)
 		_to := common.HexToAddress(toAddress)
 		gasPrice := big.NewInt(500)
@@ -81,8 +81,8 @@ func TestEVMTransfer005(t *testing.T) {
 		hash1, _ := _singTransaction(chainId, fromPrivateKey, rawTx1, ethClient)
 		hash2, _ := _singTransaction(chainId, fromPrivateKey, rawTx2, ethClient)
 
-		fmt.Println("hash1: ", hash1)
-		fmt.Println("hash2: ", hash2)
+		log.Printf("hash1: %s", hash1)
+		log.Printf("hash2: %s", hash2)
 
 		receipt1, err := utils.GetTransferInfoByHash(hash1)
 		if err != nil {
@@ -94,32 +94,32 @@ func TestEVMTransfer005(t *testing.T) {
 		}
 
 		if receipt1.Status != 1 {
-			fmt.Println("receipt1.Status : ", receipt1.Status)
+			log.Printf("receipt1.Status : %d", receipt1.Status)
 			panic("TxTransaction fail !!!")
 		}
 		So(receipt2.Status, ShouldEqual, 0) // 断言第二笔交易状态是否为失败
 
 		useGas1 := big.NewInt(int64(receipt1.CumulativeGasUsed))
-		fmt.Println("useGas1 ", useGas1)
+		log.Printf("useGas1 %d", useGas1)
 		useGas2 := big.NewInt(int64(receipt2.CumulativeGasUsed))
-		fmt.Println("useGas2 ", useGas2)
+		log.Printf("useGas2 %d", useGas2)
 		fromBalanceAfter := utils.GetBalance(fromAddress.String())
 		toBalanceAfter := utils.GetBalance(toAddress)
 		managerBalanceAfter := utils.GetBalance("0x0000000000000000000000000000000000000007")
-		fmt.Println("fromBalance ", fromBalance)
-		fmt.Println("toBalance ", toBalance)
-		fmt.Println("managerBalance ", managerBalance)
-		fmt.Println("fromBalanceAfter ", fromBalanceAfter)
-		fmt.Println("toBalanceAfter ", toBalanceAfter)
-		fmt.Println("managerBalanceAfter ", managerBalanceAfter)
+		log.Printf("fromBalance  %d", fromBalance)
+		log.Printf("toBalance  %d", toBalance)
+		log.Printf("managerBalance  %d", managerBalance)
+		log.Printf("fromBalanceAfter  %d", fromBalanceAfter)
+		log.Printf("toBalanceAfter  %d", toBalanceAfter)
+		log.Printf("managerBalanceAfter  %d", managerBalanceAfter)
 
 		//1.请求一调用成功，交易正常落账
 		//2.请求二EVM事务回滚，扣除消耗gas
 
 		//1 断言from账户资金是否 = fromBalance1 = fromBalance - gasUsed1 - gasUsed2 - amount
-		fmt.Println("useGas1", useGas1)
-		fmt.Println("useGas2", useGas2)
-		fmt.Println("amount", amount)
+		log.Printf("useGas1 %d", useGas1)
+		log.Printf("useGas2 %d", useGas2)
+		log.Printf("amount %d", amount)
 		fromBalance1 := fromBalanceAfter.Add(fromBalanceAfter, amount).Add(fromBalanceAfter, useGas1).Add(fromBalanceAfter, useGas2)
 		So(fromBalance.Cmp(fromBalance1) == 0, ShouldBeTrue)
 		//2 断言to账户资金是否 = toBalance + amount
@@ -151,6 +151,6 @@ func _singTransaction(chainId *big.Int, fromPrivateKey string, rawTx *types.Tran
 	go func() {
 		err = ethClient.SendTransaction(context.Background(), sigTransaction)
 	}()
-	fmt.Println("tx hash(evm): ", sigTransaction.Hash())
+	log.Printf("tx hash(evm): %s", sigTransaction.Hash().String())
 	return sigTransaction.Hash(), nil
 }

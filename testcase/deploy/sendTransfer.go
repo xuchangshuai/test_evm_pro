@@ -2,10 +2,10 @@ package deploy
 
 import (
 	"context"
-	"fmt"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
+	"log"
 	"math/big"
 	"test_evm/config"
 )
@@ -31,7 +31,7 @@ func SendTransfer(fromPrivateKey string, to string, amount *big.Int, gasLimit ui
 	if err != nil {
 		return common.Hash{}, err
 	}
-	fmt.Println("nonce: ", nonce)
+	log.Printf("nonce: %d", nonce)
 	_to := common.HexToAddress(to)
 	gasPrice := big.NewInt(500)
 	//amount := big.NewInt(257000000000)
@@ -51,6 +51,6 @@ func SendTransfer(fromPrivateKey string, to string, amount *big.Int, gasLimit ui
 	if err != nil {
 		return common.Hash{}, err
 	}
-	fmt.Println("tx hash(evm): ", sigTransaction.Hash())
+	log.Printf("tx hash(evm): %s", sigTransaction.Hash())
 	return sigTransaction.Hash(), nil
 }

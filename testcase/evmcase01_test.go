@@ -1,9 +1,9 @@
 package testcase
 
 import (
-	"fmt"
 	"github.com/ethereum/go-ethereum/crypto"
 	. "github.com/smartystreets/goconvey/convey"
+	"log"
 	"math/big"
 	"test_evm/config"
 	"test_evm/testcase/deploy"
@@ -19,12 +19,11 @@ func TestEVMTransfer001(t *testing.T) {
 		fromPrivateKey := config.FromPrivate
 		fromPrivate, _ := crypto.HexToECDSA(fromPrivateKey)
 		fromAddress := crypto.PubkeyToAddress(fromPrivate.PublicKey)
-		fmt.Println("fromAddress: ", fromAddress)
-
+		log.Printf("fromAddress: %s", fromAddress.String())
 		//交易前账户余额
-		fromBalance := utils.GetBalance( fromAddress.String())
-		toBalance := utils.GetBalance( toAddress)
-		managerBalance := utils.GetBalance( "0x0000000000000000000000000000000000000007")
+		fromBalance := utils.GetBalance(fromAddress.String())
+		toBalance := utils.GetBalance(toAddress)
+		managerBalance := utils.GetBalance("0x0000000000000000000000000000000000000007")
 
 		hash, err := deploy.SendTransfer(fromPrivateKey, toAddress, amount, uint64(200000))
 		if err != nil {
@@ -37,20 +36,20 @@ func TestEVMTransfer001(t *testing.T) {
 		}
 		//fmt.Println(receipt)
 		if receipt.Status != 1 {
-			fmt.Println("status : ", receipt.Status)
+			log.Printf("status :%d ", receipt.Status)
 			panic("TxTransaction fail !!!")
 		}
 		useGas := receipt.CumulativeGasUsed
-		fmt.Println("useGas", useGas)
-		fromBalanceAfter := utils.GetBalance( fromAddress.String())
-		toBalanceAfter := utils.GetBalance( toAddress)
-		managerBalanceAfter := utils.GetBalance( "0x0000000000000000000000000000000000000007")
-		fmt.Println("fromBalance", fromBalance)
-		fmt.Println("toBalance", toBalance)
-		fmt.Println("managerBalance", managerBalance)
-		fmt.Println("fromBalanceAfter", fromBalanceAfter)
-		fmt.Println("toBalanceAfter", toBalanceAfter)
-		fmt.Println("managerBalanceAfter", managerBalanceAfter)
+		log.Printf("useGas: %d", useGas)
+		fromBalanceAfter := utils.GetBalance(fromAddress.String())
+		toBalanceAfter := utils.GetBalance(toAddress)
+		managerBalanceAfter := utils.GetBalance("0x0000000000000000000000000000000000000007")
+		log.Printf("fromBalance: %d", fromBalance)
+		log.Printf("toBalance: %d", toBalance)
+		log.Printf("managerBalance: %d", managerBalance)
+		log.Printf("fromBalanceAfter: %d", fromBalanceAfter)
+		log.Printf("toBalanceAfter: %d", toBalanceAfter)
+		log.Printf("managerBalanceAfter: %d", managerBalanceAfter)
 		//1 断言from账户资金是否 = fromBalance1 = fromBalance - gasUsed - amount
 		fromBalance1 := fromBalanceAfter.Add(fromBalanceAfter, amount).Add(fromBalanceAfter, big.NewInt(int64(useGas)))
 		So(fromBalance.Cmp(fromBalance1) == 0, ShouldBeTrue)
@@ -71,35 +70,35 @@ func TestEVMTransfer002(t *testing.T) {
 		fromAddress := crypto.PubkeyToAddress(fromPrivate.PublicKey)
 
 		//交易前账户余额
-		fromBalance := utils.GetBalance(  fromAddress.String())
-		toBalance := utils.GetBalance(  toAddress)
-		managerBalance := utils.GetBalance(  "0x0000000000000000000000000000000000000007")
+		fromBalance := utils.GetBalance(fromAddress.String())
+		toBalance := utils.GetBalance(toAddress)
+		managerBalance := utils.GetBalance("0x0000000000000000000000000000000000000007")
 
-		hash, err := deploy.SendTransfer(  fromPrivateKey, toAddress, amount, uint64(200000))
+		hash, err := deploy.SendTransfer(fromPrivateKey, toAddress, amount, uint64(200000))
 		if err != nil {
 			panic(err)
 		}
 		//fmt.Println(hash)
 		receipt, err := utils.GetTransferInfoByHash(hash)
 		if err != nil {
-			fmt.Println("交易未落账！")
+			log.Println("交易未落账！")
 			panic(err)
 		}
 		if receipt.Status != 1 {
-			fmt.Println("status : ", receipt.Status)
+			log.Printf("status : %d", receipt.Status)
 			panic("TxTransaction fail !!!")
 		}
 		useGas := receipt.CumulativeGasUsed
-		fmt.Println("useGas", useGas)
-		fromBalanceAfter := utils.GetBalance(  fromAddress.String())
-		toBalanceAfter := utils.GetBalance(  toAddress)
-		managerBalanceAfter := utils.GetBalance(  "0x0000000000000000000000000000000000000007")
-		fmt.Println("fromBalance", fromBalance)
-		fmt.Println("toBalance", toBalance)
-		fmt.Println("managerBalance", managerBalance)
-		fmt.Println("fromBalanceAfter", fromBalanceAfter)
-		fmt.Println("toBalanceAfter", toBalanceAfter)
-		fmt.Println("managerBalanceAfter", managerBalanceAfter)
+		log.Printf("useGas %d", useGas)
+		fromBalanceAfter := utils.GetBalance(fromAddress.String())
+		toBalanceAfter := utils.GetBalance(toAddress)
+		managerBalanceAfter := utils.GetBalance("0x0000000000000000000000000000000000000007")
+		log.Printf("fromBalance: %d", fromBalance)
+		log.Printf("toBalance: %d", toBalance)
+		log.Printf("managerBalance: %d", managerBalance)
+		log.Printf("fromBalanceAfter: %d", fromBalanceAfter)
+		log.Printf("toBalanceAfter: %d", toBalanceAfter)
+		log.Printf("managerBalanceAfter: %d", managerBalanceAfter)
 		//1 断言from账户资金是否 = fromBalance1 = fromBalance - gasUsed - amount
 		fromBalance1 := fromBalanceAfter.Add(fromBalanceAfter, amount).Add(fromBalanceAfter, big.NewInt(int64(useGas)))
 		So(fromBalance.Cmp(fromBalance1) == 0, ShouldBeTrue)
@@ -120,11 +119,11 @@ func TestEVMTransfer003(t *testing.T) {
 		fromAddress := crypto.PubkeyToAddress(fromPrivate.PublicKey)
 
 		//交易前账户余额
-		fromBalance := utils.GetBalance(  fromAddress.String())
-		toBalance := utils.GetBalance(  toAddress)
-		managerBalance := utils.GetBalance(  "0x0000000000000000000000000000000000000007")
+		fromBalance := utils.GetBalance(fromAddress.String())
+		toBalance := utils.GetBalance(toAddress)
+		managerBalance := utils.GetBalance("0x0000000000000000000000000000000000000007")
 
-		hash, err := deploy.SendTransfer(  fromPrivateKey, toAddress, amount, uint64(200000))
+		hash, err := deploy.SendTransfer(fromPrivateKey, toAddress, amount, uint64(200000))
 		if err != nil {
 			panic(err)
 		}
@@ -134,20 +133,20 @@ func TestEVMTransfer003(t *testing.T) {
 		}
 		//fmt.Println(receipt)
 		if receipt.Status != 1 {
-			fmt.Println("status : ", receipt.Status)
+			log.Printf("status : %d", receipt.Status)
 			panic("TxTransaction fail !!!")
 		}
 		useGas := receipt.CumulativeGasUsed
-		fmt.Println("useGas", useGas)
-		fromBalanceAfter := utils.GetBalance(  fromAddress.String())
-		toBalanceAfter := utils.GetBalance(  toAddress)
-		managerBalanceAfter := utils.GetBalance(  "0x0000000000000000000000000000000000000007")
-		fmt.Println("fromBalance", fromBalance)
-		fmt.Println("toBalance", toBalance)
-		fmt.Println("managerBalance", managerBalance)
-		fmt.Println("fromBalanceAfter", fromBalanceAfter)
-		fmt.Println("toBalanceAfter", toBalanceAfter)
-		fmt.Println("managerBalanceAfter", managerBalanceAfter)
+		log.Printf("useGas: %d", useGas)
+		fromBalanceAfter := utils.GetBalance(fromAddress.String())
+		toBalanceAfter := utils.GetBalance(toAddress)
+		managerBalanceAfter := utils.GetBalance("0x0000000000000000000000000000000000000007")
+		log.Printf("fromBalance: %d", fromBalance)
+		log.Printf("toBalance: %d", toBalance)
+		log.Printf("managerBalance: %d", managerBalance)
+		log.Printf("fromBalanceAfter: %d", fromBalanceAfter)
+		log.Printf("toBalanceAfter: %d", toBalanceAfter)
+		log.Printf("managerBalanceAfter: %d", managerBalanceAfter)
 		//1 断言from账户资金是否 = fromBalance1 = fromBalance - gasUsed - amount
 		fromBalance1 := fromBalanceAfter.Add(fromBalanceAfter, amount).Add(fromBalanceAfter, big.NewInt(int64(useGas)))
 		So(fromBalance.Cmp(fromBalance1) == 0, ShouldBeTrue)
@@ -168,11 +167,11 @@ func TestEVMTransfer004(t *testing.T) {
 		fromAddress := crypto.PubkeyToAddress(fromPrivate.PublicKey)
 
 		//交易前账户余额
-		fromBalance := utils.GetBalance(  fromAddress.String())
-		toBalance := utils.GetBalance(  toAddress)
-		managerBalance := utils.GetBalance(  "0x0000000000000000000000000000000000000007")
+		fromBalance := utils.GetBalance(fromAddress.String())
+		toBalance := utils.GetBalance(toAddress)
+		managerBalance := utils.GetBalance("0x0000000000000000000000000000000000000007")
 
-		hash, err := deploy.SendTransfer(  fromPrivateKey, toAddress, amount, uint64(200000))
+		hash, err := deploy.SendTransfer(fromPrivateKey, toAddress, amount, uint64(200000))
 		if err != nil {
 			panic(err)
 		}
@@ -183,20 +182,20 @@ func TestEVMTransfer004(t *testing.T) {
 		}
 		//fmt.Println(receipt)
 		if receipt.Status != 1 {
-			fmt.Println("status : ", receipt.Status)
+			log.Printf("status : %d ", receipt.Status)
 			panic("TxTransaction fail !!!")
 		}
 		useGas := receipt.CumulativeGasUsed
-		fmt.Println("useGas", useGas)
-		fromBalanceAfter := utils.GetBalance(  fromAddress.String())
-		toBalanceAfter := utils.GetBalance(  toAddress)
-		managerBalanceAfter := utils.GetBalance(  "0x0000000000000000000000000000000000000007")
-		fmt.Println("fromBalance", fromBalance)
-		fmt.Println("toBalance", toBalance)
-		fmt.Println("managerBalance", managerBalance)
-		fmt.Println("fromBalanceAfter", fromBalanceAfter)
-		fmt.Println("toBalanceAfter", toBalanceAfter)
-		fmt.Println("managerBalanceAfter", managerBalanceAfter)
+		log.Printf("useGas: %d ", useGas)
+		fromBalanceAfter := utils.GetBalance(fromAddress.String())
+		toBalanceAfter := utils.GetBalance(toAddress)
+		managerBalanceAfter := utils.GetBalance("0x0000000000000000000000000000000000000007")
+		log.Printf("fromBalance: %d ", fromBalance)
+		log.Printf("toBalance: %d ", toBalance)
+		log.Printf("managerBalance: %d ", managerBalance)
+		log.Printf("fromBalanceAfter: %d ", fromBalanceAfter)
+		log.Printf("toBalanceAfter: %d ", toBalanceAfter)
+		log.Printf("managerBalanceAfter: %d ", managerBalanceAfter)
 		//1 断言from账户资金是否 = fromBalance1 = fromBalance - gasUsed - amount
 		fromBalance1 := fromBalanceAfter.Add(fromBalanceAfter, amount).Add(fromBalanceAfter, big.NewInt(int64(useGas)))
 		So(fromBalance.Cmp(fromBalance1) == 0, ShouldBeTrue)
