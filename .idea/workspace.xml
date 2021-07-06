@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a84f5e50-aa3e-4ac8-bb07-4336d1b7a2ef" name="Default Changelist" comment="update sh">
-      <change afterPath="$PROJECT_DIR$/testcase/ERC20case01_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testcase/deploy/testEPC20/EPC20_example.sol" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testcase/ERC20caseTransferFrom_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testcase/ERC20caseTransfer_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testcase/ERP20caseApprove_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/deploy/deployContract.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/deploy/deployContract.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/evmcase05_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/evmcase05_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/example/example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/example/example_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/re.sh" beforeDir="false" afterPath="$PROJECT_DIR$/re.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcase/ERC20case01_test.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,8 +62,8 @@
       <recent name="F:\test_project\test_evm_pro" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestERC20_01 in test_evm/testcase">
-    <configuration name="TestERC20_01 in test_evm/testcase" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.TestERC20_transferFrom in test_evm/testcase">
+    <configuration name="TestERC20_approve in test_evm/testcase" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="test_evm_pro" />
       <working_directory value="$PROJECT_DIR$/testcase" />
       <root_directory value="$PROJECT_DIR$" />
@@ -71,10 +72,10 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestERC20_01\E$" />
+      <pattern value="^\QTestERC20_approve\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestEVMTransfer001 in test_evm/testcase (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestERC20_transfer in test_evm/testcase (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="test_evm_pro" />
       <working_directory value="$PROJECT_DIR$/testcase" />
       <root_directory value="$PROJECT_DIR$" />
@@ -83,10 +84,10 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestEVMTransfer001\E$" />
+      <pattern value="^\QTestERC20_transfer\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestEVMTransfer008 in test_evm/testcase" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestERC20_transfer in test_evm/testcase" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="test_evm_pro" />
       <working_directory value="$PROJECT_DIR$/testcase" />
       <root_directory value="$PROJECT_DIR$" />
@@ -95,10 +96,10 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestEVMTransfer008\E$" />
+      <pattern value="^\QTestERC20_transfer\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestEVMTransfer009 in test_evm/testcase (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestERC20_transferFrom in test_evm/testcase" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="test_evm_pro" />
       <working_directory value="$PROJECT_DIR$/testcase" />
       <root_directory value="$PROJECT_DIR$" />
@@ -107,10 +108,10 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestEVMTransfer009\E$" />
+      <pattern value="^\QTestERC20_transferFrom\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestEVMTransfer009 in test_evm/testcase" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestERC20_transfer_01 in test_evm/testcase" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="test_evm_pro" />
       <working_directory value="$PROJECT_DIR$/testcase" />
       <root_directory value="$PROJECT_DIR$" />
@@ -119,16 +120,16 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestEVMTransfer009\E$" />
+      <pattern value="^\QTestERC20_transfer_01\E$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestERC20_01 in test_evm/testcase" />
-        <item itemvalue="Go Test.TestEVMTransfer009 in test_evm/testcase (1)" />
-        <item itemvalue="Go Test.TestEVMTransfer001 in test_evm/testcase (1)" />
-        <item itemvalue="Go Test.TestEVMTransfer009 in test_evm/testcase" />
-        <item itemvalue="Go Test.TestEVMTransfer008 in test_evm/testcase" />
+        <item itemvalue="Go Test.TestERC20_transferFrom in test_evm/testcase" />
+        <item itemvalue="Go Test.TestERC20_approve in test_evm/testcase" />
+        <item itemvalue="Go Test.TestERC20_transfer in test_evm/testcase (1)" />
+        <item itemvalue="Go Test.TestERC20_transfer in test_evm/testcase" />
+        <item itemvalue="Go Test.TestERC20_transfer_01 in test_evm/testcase" />
       </list>
     </recent_temporary>
   </component>
