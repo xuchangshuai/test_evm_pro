@@ -2,13 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a84f5e50-aa3e-4ac8-bb07-4336d1b7a2ef" name="Default Changelist" comment="update sh">
-      <change afterPath="$PROJECT_DIR$/testcase/ERC20caseTransferFrom_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testcase/ERC20caseTransfer_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testcase/ERP20caseApprove_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testcase/OpCode_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testcase/deploy/testOpCode/TestOpCode.sol" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testcase/deploy/testOpCode/TestOpCode2.sol" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testcase/deploy/testOpCode/TestOpCode3.sol" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testcase/deploy/testOpCode/TestOpCode4.sol" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testcase/deploy/testOpCode/TestOpCode5.sol" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/re.sh" beforeDir="false" afterPath="$PROJECT_DIR$/re.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/ERC20case01_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcase/ERC20caseTransferFrom_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/ERC20caseTransferFrom_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcase/ERC20caseTransfer_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/ERC20caseTransfer_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcase/deploy/testEPC20/EPC20_example.sol" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/deploy/testEPC20/ERC20_example.sol" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcase/deploy/testEPC20/EPC20_example_sol_TokenERC20.abi" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/deploy/testEPC20/ERC20_example_sol_TokenERC20.abi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcase/deploy/testEPC20/EPC20_example_sol_TokenERC20.bin" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/deploy/testEPC20/ERC20_example_sol_TokenERC20.bin" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +67,7 @@
       <recent name="F:\test_project\test_evm_pro" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestERC20_transferFrom in test_evm/testcase">
+  <component name="RunManager" selected="Go Test.TestOpCode_ in test_evm/testcase">
     <configuration name="TestERC20_approve in test_evm/testcase" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="test_evm_pro" />
       <working_directory value="$PROJECT_DIR$/testcase" />
@@ -111,7 +116,7 @@
       <pattern value="^\QTestERC20_transferFrom\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestERC20_transfer_01 in test_evm/testcase" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestOpCode_ in test_evm/testcase" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="test_evm_pro" />
       <working_directory value="$PROJECT_DIR$/testcase" />
       <root_directory value="$PROJECT_DIR$" />
@@ -120,16 +125,16 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestERC20_transfer_01\E$" />
+      <pattern value="^\QTestOpCode_\E$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestOpCode_ in test_evm/testcase" />
         <item itemvalue="Go Test.TestERC20_transferFrom in test_evm/testcase" />
         <item itemvalue="Go Test.TestERC20_approve in test_evm/testcase" />
         <item itemvalue="Go Test.TestERC20_transfer in test_evm/testcase (1)" />
         <item itemvalue="Go Test.TestERC20_transfer in test_evm/testcase" />
-        <item itemvalue="Go Test.TestERC20_transfer_01 in test_evm/testcase" />
       </list>
     </recent_temporary>
   </component>

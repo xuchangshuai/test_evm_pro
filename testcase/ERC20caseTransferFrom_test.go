@@ -170,12 +170,14 @@ func TestERC20_transferFrom(t *testing.T) {
 		erc20Contract, err := ERC20Test.NewERC20Test(erc20ContractAddress, ethClient)
 		_checkErr(err)
 		callOpts := &bind.CallOpts{
+
 			From: fromCoinAddress,
 		}
 		_to2 := config.GetAddressList()[3]
 		amountCoin, err := erc20Contract.Allowance(callOpts, fromAddress, fromCoinAddress)
-		amountCoin = amountCoin.Add(amountCoin, big.NewInt(1))
 		_checkErr(err)
+		amountCoin = amountCoin.Add(amountCoin, big.NewInt(1))
+
 		optsCoin, err := bind.NewKeyedTransactorWithChainID(fromCoinPrivate, chainId)
 		_checkErr(err)
 		coinNonce, err := ethClient.PendingNonceAt(context.Background(), fromCoinAddress)
