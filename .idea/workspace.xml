@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a84f5e50-aa3e-4ac8-bb07-4336d1b7a2ef" name="Default Changelist" comment="update sh">
-      <change afterPath="$PROJECT_DIR$/testcase/OpCode_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testcase/deploy/testOpCode/TestOpCode.sol" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testcase/deploy/testOpCode/TestOpCode2.sol" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testcase/deploy/testOpCode/TestOpCode3.sol" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testcase/deploy/testOpCode/TestOpCode4.sol" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testcase/deploy/testOpCode/TestOpCode5.sol" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/ERC20caseTransferFrom_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/ERC20caseTransferFrom_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/ERC20caseTransfer_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/ERC20caseTransfer_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/deploy/testEPC20/EPC20_example.sol" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/deploy/testEPC20/ERC20_example.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/deploy/testEPC20/EPC20_example_sol_TokenERC20.abi" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/deploy/testEPC20/ERC20_example_sol_TokenERC20.abi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/deploy/testEPC20/EPC20_example_sol_TokenERC20.bin" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/deploy/testEPC20/ERC20_example_sol_TokenERC20.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcase/OpCode_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/OpCode_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
