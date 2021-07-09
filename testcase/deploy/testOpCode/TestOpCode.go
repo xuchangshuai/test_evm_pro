@@ -1,7 +1,7 @@
 // Code generated - DO NOT EDIT.
 // This file is a generated binding and any manual changes will be lost.
 
-package TestOpCpde
+package OpCpde
 
 import (
 	"math/big"
@@ -27,7 +27,7 @@ var (
 )
 
 // TestOpCodeABI is the input ABI used to generate the binding from.
-const TestOpCodeABI = "[{\"inputs\":[],\"name\":\"add\",\"outputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"and\",\"outputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"byteFun\",\"outputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"div\",\"outputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"eq\",\"outputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"exp\",\"outputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"gt\",\"outputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lt\",\"outputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"mod\",\"outputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"mul\",\"outputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"not\",\"outputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"or\",\"outputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"sdiv\",\"outputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"sgt\",\"outputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"slt\",\"outputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"smod\",\"outputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"sub\",\"outputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"xor\",\"outputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\"}]"
+const TestOpCodeABI = "[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"b\",\"type\":\"uint256\"}],\"name\":\"add\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"a\",\"type\":\"int256\"},{\"internalType\":\"int256\",\"name\":\"b\",\"type\":\"int256\"}],\"name\":\"and\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"b\",\"type\":\"uint256\"}],\"name\":\"div\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"a\",\"type\":\"int256\"},{\"internalType\":\"int256\",\"name\":\"b\",\"type\":\"int256\"}],\"name\":\"eq\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"b\",\"type\":\"uint256\"}],\"name\":\"exp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"b\",\"type\":\"uint256\"}],\"name\":\"gt\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"a\",\"type\":\"int256\"}],\"name\":\"iszero\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"b\",\"type\":\"uint256\"}],\"name\":\"lt\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"b\",\"type\":\"uint256\"}],\"name\":\"mod\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"b\",\"type\":\"uint256\"}],\"name\":\"mul\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"a\",\"type\":\"int256\"}],\"name\":\"not\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"a\",\"type\":\"int256\"},{\"internalType\":\"int256\",\"name\":\"b\",\"type\":\"int256\"}],\"name\":\"or\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"a\",\"type\":\"int256\"},{\"internalType\":\"int256\",\"name\":\"b\",\"type\":\"int256\"}],\"name\":\"sdiv\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"a\",\"type\":\"int256\"},{\"internalType\":\"int256\",\"name\":\"b\",\"type\":\"int256\"}],\"name\":\"sgt\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"a\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"b\",\"type\":\"string\"}],\"name\":\"sha\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\"}],\"name\":\"shl\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\"}],\"name\":\"shr\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"a\",\"type\":\"int256\"}],\"name\":\"shr\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"a\",\"type\":\"int256\"},{\"internalType\":\"int256\",\"name\":\"b\",\"type\":\"int256\"}],\"name\":\"slt\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"a\",\"type\":\"int256\"},{\"internalType\":\"int256\",\"name\":\"b\",\"type\":\"int256\"}],\"name\":\"smod\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"b\",\"type\":\"uint256\"}],\"name\":\"sub\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"a\",\"type\":\"int256\"},{\"internalType\":\"int256\",\"name\":\"b\",\"type\":\"int256\"}],\"name\":\"xor\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}]"
 
 // TestOpCode is an auto generated Go binding around an Ethereum contract.
 type TestOpCode struct {
@@ -171,524 +171,684 @@ func (_TestOpCode *TestOpCodeTransactorRaw) Transact(opts *bind.TransactOpts, me
 	return _TestOpCode.Contract.contract.Transact(opts, method, params...)
 }
 
-// Add is a free data retrieval call binding the contract method 0x4f2be91f.
+// Add is a free data retrieval call binding the contract method 0x771602f7.
 //
-// Solidity: function add() pure returns()
-func (_TestOpCode *TestOpCodeCaller) Add(opts *bind.CallOpts) error {
+// Solidity: function add(uint256 a, uint256 b) pure returns(uint256)
+func (_TestOpCode *TestOpCodeCaller) Add(opts *bind.CallOpts, a *big.Int, b *big.Int) (*big.Int, error) {
 	var out []interface{}
-	err := _TestOpCode.contract.Call(opts, &out, "add")
+	err := _TestOpCode.contract.Call(opts, &out, "add", a, b)
 
 	if err != nil {
-		return err
+		return *new(*big.Int), err
 	}
 
-	return err
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
 
 }
 
-// Add is a free data retrieval call binding the contract method 0x4f2be91f.
+// Add is a free data retrieval call binding the contract method 0x771602f7.
 //
-// Solidity: function add() pure returns()
-func (_TestOpCode *TestOpCodeSession) Add() error {
-	return _TestOpCode.Contract.Add(&_TestOpCode.CallOpts)
+// Solidity: function add(uint256 a, uint256 b) pure returns(uint256)
+func (_TestOpCode *TestOpCodeSession) Add(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Add(&_TestOpCode.CallOpts, a, b)
 }
 
-// Add is a free data retrieval call binding the contract method 0x4f2be91f.
+// Add is a free data retrieval call binding the contract method 0x771602f7.
 //
-// Solidity: function add() pure returns()
-func (_TestOpCode *TestOpCodeCallerSession) Add() error {
-	return _TestOpCode.Contract.Add(&_TestOpCode.CallOpts)
+// Solidity: function add(uint256 a, uint256 b) pure returns(uint256)
+func (_TestOpCode *TestOpCodeCallerSession) Add(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Add(&_TestOpCode.CallOpts, a, b)
 }
 
-// And is a free data retrieval call binding the contract method 0x9542f2e0.
+// And is a free data retrieval call binding the contract method 0x726e2bdf.
 //
-// Solidity: function and() pure returns()
-func (_TestOpCode *TestOpCodeCaller) And(opts *bind.CallOpts) error {
+// Solidity: function and(int256 a, int256 b) pure returns(int256)
+func (_TestOpCode *TestOpCodeCaller) And(opts *bind.CallOpts, a *big.Int, b *big.Int) (*big.Int, error) {
 	var out []interface{}
-	err := _TestOpCode.contract.Call(opts, &out, "and")
+	err := _TestOpCode.contract.Call(opts, &out, "and", a, b)
 
 	if err != nil {
-		return err
+		return *new(*big.Int), err
 	}
 
-	return err
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
 
 }
 
-// And is a free data retrieval call binding the contract method 0x9542f2e0.
+// And is a free data retrieval call binding the contract method 0x726e2bdf.
 //
-// Solidity: function and() pure returns()
-func (_TestOpCode *TestOpCodeSession) And() error {
-	return _TestOpCode.Contract.And(&_TestOpCode.CallOpts)
+// Solidity: function and(int256 a, int256 b) pure returns(int256)
+func (_TestOpCode *TestOpCodeSession) And(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.And(&_TestOpCode.CallOpts, a, b)
 }
 
-// And is a free data retrieval call binding the contract method 0x9542f2e0.
+// And is a free data retrieval call binding the contract method 0x726e2bdf.
 //
-// Solidity: function and() pure returns()
-func (_TestOpCode *TestOpCodeCallerSession) And() error {
-	return _TestOpCode.Contract.And(&_TestOpCode.CallOpts)
+// Solidity: function and(int256 a, int256 b) pure returns(int256)
+func (_TestOpCode *TestOpCodeCallerSession) And(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.And(&_TestOpCode.CallOpts, a, b)
 }
 
-// ByteFun is a free data retrieval call binding the contract method 0x5c12da89.
+// Div is a free data retrieval call binding the contract method 0xa391c15b.
 //
-// Solidity: function byteFun() pure returns()
-func (_TestOpCode *TestOpCodeCaller) ByteFun(opts *bind.CallOpts) error {
+// Solidity: function div(uint256 a, uint256 b) pure returns(uint256)
+func (_TestOpCode *TestOpCodeCaller) Div(opts *bind.CallOpts, a *big.Int, b *big.Int) (*big.Int, error) {
 	var out []interface{}
-	err := _TestOpCode.contract.Call(opts, &out, "byteFun")
+	err := _TestOpCode.contract.Call(opts, &out, "div", a, b)
 
 	if err != nil {
-		return err
+		return *new(*big.Int), err
 	}
 
-	return err
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
 
 }
 
-// ByteFun is a free data retrieval call binding the contract method 0x5c12da89.
+// Div is a free data retrieval call binding the contract method 0xa391c15b.
 //
-// Solidity: function byteFun() pure returns()
-func (_TestOpCode *TestOpCodeSession) ByteFun() error {
-	return _TestOpCode.Contract.ByteFun(&_TestOpCode.CallOpts)
+// Solidity: function div(uint256 a, uint256 b) pure returns(uint256)
+func (_TestOpCode *TestOpCodeSession) Div(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Div(&_TestOpCode.CallOpts, a, b)
 }
 
-// ByteFun is a free data retrieval call binding the contract method 0x5c12da89.
+// Div is a free data retrieval call binding the contract method 0xa391c15b.
 //
-// Solidity: function byteFun() pure returns()
-func (_TestOpCode *TestOpCodeCallerSession) ByteFun() error {
-	return _TestOpCode.Contract.ByteFun(&_TestOpCode.CallOpts)
+// Solidity: function div(uint256 a, uint256 b) pure returns(uint256)
+func (_TestOpCode *TestOpCodeCallerSession) Div(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Div(&_TestOpCode.CallOpts, a, b)
 }
 
-// Div is a free data retrieval call binding the contract method 0xf9fa48c3.
+// Eq is a free data retrieval call binding the contract method 0xaa2c45bf.
 //
-// Solidity: function div() pure returns()
-func (_TestOpCode *TestOpCodeCaller) Div(opts *bind.CallOpts) error {
+// Solidity: function eq(int256 a, int256 b) pure returns(bool)
+func (_TestOpCode *TestOpCodeCaller) Eq(opts *bind.CallOpts, a *big.Int, b *big.Int) (bool, error) {
 	var out []interface{}
-	err := _TestOpCode.contract.Call(opts, &out, "div")
+	err := _TestOpCode.contract.Call(opts, &out, "eq", a, b)
 
 	if err != nil {
-		return err
+		return *new(bool), err
 	}
 
-	return err
+	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
+
+	return out0, err
 
 }
 
-// Div is a free data retrieval call binding the contract method 0xf9fa48c3.
+// Eq is a free data retrieval call binding the contract method 0xaa2c45bf.
 //
-// Solidity: function div() pure returns()
-func (_TestOpCode *TestOpCodeSession) Div() error {
-	return _TestOpCode.Contract.Div(&_TestOpCode.CallOpts)
+// Solidity: function eq(int256 a, int256 b) pure returns(bool)
+func (_TestOpCode *TestOpCodeSession) Eq(a *big.Int, b *big.Int) (bool, error) {
+	return _TestOpCode.Contract.Eq(&_TestOpCode.CallOpts, a, b)
 }
 
-// Div is a free data retrieval call binding the contract method 0xf9fa48c3.
+// Eq is a free data retrieval call binding the contract method 0xaa2c45bf.
 //
-// Solidity: function div() pure returns()
-func (_TestOpCode *TestOpCodeCallerSession) Div() error {
-	return _TestOpCode.Contract.Div(&_TestOpCode.CallOpts)
+// Solidity: function eq(int256 a, int256 b) pure returns(bool)
+func (_TestOpCode *TestOpCodeCallerSession) Eq(a *big.Int, b *big.Int) (bool, error) {
+	return _TestOpCode.Contract.Eq(&_TestOpCode.CallOpts, a, b)
 }
 
-// Eq is a free data retrieval call binding the contract method 0xb5165b60.
+// Exp is a free data retrieval call binding the contract method 0xf5f565f8.
 //
-// Solidity: function eq() pure returns()
-func (_TestOpCode *TestOpCodeCaller) Eq(opts *bind.CallOpts) error {
+// Solidity: function exp(uint256 a, uint256 b) pure returns(uint256)
+func (_TestOpCode *TestOpCodeCaller) Exp(opts *bind.CallOpts, a *big.Int, b *big.Int) (*big.Int, error) {
 	var out []interface{}
-	err := _TestOpCode.contract.Call(opts, &out, "eq")
+	err := _TestOpCode.contract.Call(opts, &out, "exp", a, b)
 
 	if err != nil {
-		return err
+		return *new(*big.Int), err
 	}
 
-	return err
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
 
 }
 
-// Eq is a free data retrieval call binding the contract method 0xb5165b60.
+// Exp is a free data retrieval call binding the contract method 0xf5f565f8.
 //
-// Solidity: function eq() pure returns()
-func (_TestOpCode *TestOpCodeSession) Eq() error {
-	return _TestOpCode.Contract.Eq(&_TestOpCode.CallOpts)
+// Solidity: function exp(uint256 a, uint256 b) pure returns(uint256)
+func (_TestOpCode *TestOpCodeSession) Exp(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Exp(&_TestOpCode.CallOpts, a, b)
 }
 
-// Eq is a free data retrieval call binding the contract method 0xb5165b60.
+// Exp is a free data retrieval call binding the contract method 0xf5f565f8.
 //
-// Solidity: function eq() pure returns()
-func (_TestOpCode *TestOpCodeCallerSession) Eq() error {
-	return _TestOpCode.Contract.Eq(&_TestOpCode.CallOpts)
+// Solidity: function exp(uint256 a, uint256 b) pure returns(uint256)
+func (_TestOpCode *TestOpCodeCallerSession) Exp(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Exp(&_TestOpCode.CallOpts, a, b)
 }
 
-// Exp is a free data retrieval call binding the contract method 0xab60ffda.
+// Gt is a free data retrieval call binding the contract method 0x21e5749b.
 //
-// Solidity: function exp() pure returns()
-func (_TestOpCode *TestOpCodeCaller) Exp(opts *bind.CallOpts) error {
+// Solidity: function gt(uint256 a, uint256 b) pure returns(bool)
+func (_TestOpCode *TestOpCodeCaller) Gt(opts *bind.CallOpts, a *big.Int, b *big.Int) (bool, error) {
 	var out []interface{}
-	err := _TestOpCode.contract.Call(opts, &out, "exp")
+	err := _TestOpCode.contract.Call(opts, &out, "gt", a, b)
 
 	if err != nil {
-		return err
+		return *new(bool), err
 	}
 
-	return err
+	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
+
+	return out0, err
 
 }
 
-// Exp is a free data retrieval call binding the contract method 0xab60ffda.
+// Gt is a free data retrieval call binding the contract method 0x21e5749b.
 //
-// Solidity: function exp() pure returns()
-func (_TestOpCode *TestOpCodeSession) Exp() error {
-	return _TestOpCode.Contract.Exp(&_TestOpCode.CallOpts)
+// Solidity: function gt(uint256 a, uint256 b) pure returns(bool)
+func (_TestOpCode *TestOpCodeSession) Gt(a *big.Int, b *big.Int) (bool, error) {
+	return _TestOpCode.Contract.Gt(&_TestOpCode.CallOpts, a, b)
 }
 
-// Exp is a free data retrieval call binding the contract method 0xab60ffda.
+// Gt is a free data retrieval call binding the contract method 0x21e5749b.
 //
-// Solidity: function exp() pure returns()
-func (_TestOpCode *TestOpCodeCallerSession) Exp() error {
-	return _TestOpCode.Contract.Exp(&_TestOpCode.CallOpts)
+// Solidity: function gt(uint256 a, uint256 b) pure returns(bool)
+func (_TestOpCode *TestOpCodeCallerSession) Gt(a *big.Int, b *big.Int) (bool, error) {
+	return _TestOpCode.Contract.Gt(&_TestOpCode.CallOpts, a, b)
 }
 
-// Gt is a free data retrieval call binding the contract method 0xaf0ab80a.
+// Iszero is a free data retrieval call binding the contract method 0x319d5414.
 //
-// Solidity: function gt() pure returns()
-func (_TestOpCode *TestOpCodeCaller) Gt(opts *bind.CallOpts) error {
+// Solidity: function iszero(int256 a) pure returns(bool)
+func (_TestOpCode *TestOpCodeCaller) Iszero(opts *bind.CallOpts, a *big.Int) (bool, error) {
 	var out []interface{}
-	err := _TestOpCode.contract.Call(opts, &out, "gt")
+	err := _TestOpCode.contract.Call(opts, &out, "iszero", a)
 
 	if err != nil {
-		return err
+		return *new(bool), err
 	}
 
-	return err
+	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
+
+	return out0, err
 
 }
 
-// Gt is a free data retrieval call binding the contract method 0xaf0ab80a.
+// Iszero is a free data retrieval call binding the contract method 0x319d5414.
 //
-// Solidity: function gt() pure returns()
-func (_TestOpCode *TestOpCodeSession) Gt() error {
-	return _TestOpCode.Contract.Gt(&_TestOpCode.CallOpts)
+// Solidity: function iszero(int256 a) pure returns(bool)
+func (_TestOpCode *TestOpCodeSession) Iszero(a *big.Int) (bool, error) {
+	return _TestOpCode.Contract.Iszero(&_TestOpCode.CallOpts, a)
 }
 
-// Gt is a free data retrieval call binding the contract method 0xaf0ab80a.
+// Iszero is a free data retrieval call binding the contract method 0x319d5414.
 //
-// Solidity: function gt() pure returns()
-func (_TestOpCode *TestOpCodeCallerSession) Gt() error {
-	return _TestOpCode.Contract.Gt(&_TestOpCode.CallOpts)
+// Solidity: function iszero(int256 a) pure returns(bool)
+func (_TestOpCode *TestOpCodeCallerSession) Iszero(a *big.Int) (bool, error) {
+	return _TestOpCode.Contract.Iszero(&_TestOpCode.CallOpts, a)
 }
 
-// Lt is a free data retrieval call binding the contract method 0xa22ca2a6.
+// Lt is a free data retrieval call binding the contract method 0x118fc88c.
 //
-// Solidity: function lt() pure returns()
-func (_TestOpCode *TestOpCodeCaller) Lt(opts *bind.CallOpts) error {
+// Solidity: function lt(uint256 a, uint256 b) pure returns(bool)
+func (_TestOpCode *TestOpCodeCaller) Lt(opts *bind.CallOpts, a *big.Int, b *big.Int) (bool, error) {
 	var out []interface{}
-	err := _TestOpCode.contract.Call(opts, &out, "lt")
+	err := _TestOpCode.contract.Call(opts, &out, "lt", a, b)
 
 	if err != nil {
-		return err
+		return *new(bool), err
 	}
 
-	return err
+	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
+
+	return out0, err
 
 }
 
-// Lt is a free data retrieval call binding the contract method 0xa22ca2a6.
+// Lt is a free data retrieval call binding the contract method 0x118fc88c.
 //
-// Solidity: function lt() pure returns()
-func (_TestOpCode *TestOpCodeSession) Lt() error {
-	return _TestOpCode.Contract.Lt(&_TestOpCode.CallOpts)
+// Solidity: function lt(uint256 a, uint256 b) pure returns(bool)
+func (_TestOpCode *TestOpCodeSession) Lt(a *big.Int, b *big.Int) (bool, error) {
+	return _TestOpCode.Contract.Lt(&_TestOpCode.CallOpts, a, b)
 }
 
-// Lt is a free data retrieval call binding the contract method 0xa22ca2a6.
+// Lt is a free data retrieval call binding the contract method 0x118fc88c.
 //
-// Solidity: function lt() pure returns()
-func (_TestOpCode *TestOpCodeCallerSession) Lt() error {
-	return _TestOpCode.Contract.Lt(&_TestOpCode.CallOpts)
+// Solidity: function lt(uint256 a, uint256 b) pure returns(bool)
+func (_TestOpCode *TestOpCodeCallerSession) Lt(a *big.Int, b *big.Int) (bool, error) {
+	return _TestOpCode.Contract.Lt(&_TestOpCode.CallOpts, a, b)
 }
 
-// Mod is a free data retrieval call binding the contract method 0x2986e054.
+// Mod is a free data retrieval call binding the contract method 0xf43f523a.
 //
-// Solidity: function mod() pure returns()
-func (_TestOpCode *TestOpCodeCaller) Mod(opts *bind.CallOpts) error {
+// Solidity: function mod(uint256 a, uint256 b) pure returns(uint256)
+func (_TestOpCode *TestOpCodeCaller) Mod(opts *bind.CallOpts, a *big.Int, b *big.Int) (*big.Int, error) {
 	var out []interface{}
-	err := _TestOpCode.contract.Call(opts, &out, "mod")
+	err := _TestOpCode.contract.Call(opts, &out, "mod", a, b)
 
 	if err != nil {
-		return err
+		return *new(*big.Int), err
 	}
 
-	return err
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
 
 }
 
-// Mod is a free data retrieval call binding the contract method 0x2986e054.
+// Mod is a free data retrieval call binding the contract method 0xf43f523a.
 //
-// Solidity: function mod() pure returns()
-func (_TestOpCode *TestOpCodeSession) Mod() error {
-	return _TestOpCode.Contract.Mod(&_TestOpCode.CallOpts)
+// Solidity: function mod(uint256 a, uint256 b) pure returns(uint256)
+func (_TestOpCode *TestOpCodeSession) Mod(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Mod(&_TestOpCode.CallOpts, a, b)
 }
 
-// Mod is a free data retrieval call binding the contract method 0x2986e054.
+// Mod is a free data retrieval call binding the contract method 0xf43f523a.
 //
-// Solidity: function mod() pure returns()
-func (_TestOpCode *TestOpCodeCallerSession) Mod() error {
-	return _TestOpCode.Contract.Mod(&_TestOpCode.CallOpts)
+// Solidity: function mod(uint256 a, uint256 b) pure returns(uint256)
+func (_TestOpCode *TestOpCodeCallerSession) Mod(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Mod(&_TestOpCode.CallOpts, a, b)
 }
 
-// Mul is a free data retrieval call binding the contract method 0x58931c46.
+// Mul is a free data retrieval call binding the contract method 0xc8a4ac9c.
 //
-// Solidity: function mul() pure returns()
-func (_TestOpCode *TestOpCodeCaller) Mul(opts *bind.CallOpts) error {
+// Solidity: function mul(uint256 a, uint256 b) pure returns(uint256)
+func (_TestOpCode *TestOpCodeCaller) Mul(opts *bind.CallOpts, a *big.Int, b *big.Int) (*big.Int, error) {
 	var out []interface{}
-	err := _TestOpCode.contract.Call(opts, &out, "mul")
+	err := _TestOpCode.contract.Call(opts, &out, "mul", a, b)
 
 	if err != nil {
-		return err
+		return *new(*big.Int), err
 	}
 
-	return err
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
 
 }
 
-// Mul is a free data retrieval call binding the contract method 0x58931c46.
+// Mul is a free data retrieval call binding the contract method 0xc8a4ac9c.
 //
-// Solidity: function mul() pure returns()
-func (_TestOpCode *TestOpCodeSession) Mul() error {
-	return _TestOpCode.Contract.Mul(&_TestOpCode.CallOpts)
+// Solidity: function mul(uint256 a, uint256 b) pure returns(uint256)
+func (_TestOpCode *TestOpCodeSession) Mul(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Mul(&_TestOpCode.CallOpts, a, b)
 }
 
-// Mul is a free data retrieval call binding the contract method 0x58931c46.
+// Mul is a free data retrieval call binding the contract method 0xc8a4ac9c.
 //
-// Solidity: function mul() pure returns()
-func (_TestOpCode *TestOpCodeCallerSession) Mul() error {
-	return _TestOpCode.Contract.Mul(&_TestOpCode.CallOpts)
+// Solidity: function mul(uint256 a, uint256 b) pure returns(uint256)
+func (_TestOpCode *TestOpCodeCallerSession) Mul(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Mul(&_TestOpCode.CallOpts, a, b)
 }
 
-// Not is a free data retrieval call binding the contract method 0x2e13bd10.
+// Not is a free data retrieval call binding the contract method 0xa4c82e02.
 //
-// Solidity: function not() pure returns()
-func (_TestOpCode *TestOpCodeCaller) Not(opts *bind.CallOpts) error {
+// Solidity: function not(int256 a) pure returns(int256)
+func (_TestOpCode *TestOpCodeCaller) Not(opts *bind.CallOpts, a *big.Int) (*big.Int, error) {
 	var out []interface{}
-	err := _TestOpCode.contract.Call(opts, &out, "not")
+	err := _TestOpCode.contract.Call(opts, &out, "not", a)
 
 	if err != nil {
-		return err
+		return *new(*big.Int), err
 	}
 
-	return err
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
 
 }
 
-// Not is a free data retrieval call binding the contract method 0x2e13bd10.
+// Not is a free data retrieval call binding the contract method 0xa4c82e02.
 //
-// Solidity: function not() pure returns()
-func (_TestOpCode *TestOpCodeSession) Not() error {
-	return _TestOpCode.Contract.Not(&_TestOpCode.CallOpts)
+// Solidity: function not(int256 a) pure returns(int256)
+func (_TestOpCode *TestOpCodeSession) Not(a *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Not(&_TestOpCode.CallOpts, a)
 }
 
-// Not is a free data retrieval call binding the contract method 0x2e13bd10.
+// Not is a free data retrieval call binding the contract method 0xa4c82e02.
 //
-// Solidity: function not() pure returns()
-func (_TestOpCode *TestOpCodeCallerSession) Not() error {
-	return _TestOpCode.Contract.Not(&_TestOpCode.CallOpts)
+// Solidity: function not(int256 a) pure returns(int256)
+func (_TestOpCode *TestOpCodeCallerSession) Not(a *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Not(&_TestOpCode.CallOpts, a)
 }
 
-// Or is a free data retrieval call binding the contract method 0x2d5e74d8.
+// Or is a free data retrieval call binding the contract method 0xa22fcaa6.
 //
-// Solidity: function or() pure returns()
-func (_TestOpCode *TestOpCodeCaller) Or(opts *bind.CallOpts) error {
+// Solidity: function or(int256 a, int256 b) pure returns(int256)
+func (_TestOpCode *TestOpCodeCaller) Or(opts *bind.CallOpts, a *big.Int, b *big.Int) (*big.Int, error) {
 	var out []interface{}
-	err := _TestOpCode.contract.Call(opts, &out, "or")
+	err := _TestOpCode.contract.Call(opts, &out, "or", a, b)
 
 	if err != nil {
-		return err
+		return *new(*big.Int), err
 	}
 
-	return err
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
 
 }
 
-// Or is a free data retrieval call binding the contract method 0x2d5e74d8.
+// Or is a free data retrieval call binding the contract method 0xa22fcaa6.
 //
-// Solidity: function or() pure returns()
-func (_TestOpCode *TestOpCodeSession) Or() error {
-	return _TestOpCode.Contract.Or(&_TestOpCode.CallOpts)
+// Solidity: function or(int256 a, int256 b) pure returns(int256)
+func (_TestOpCode *TestOpCodeSession) Or(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Or(&_TestOpCode.CallOpts, a, b)
 }
 
-// Or is a free data retrieval call binding the contract method 0x2d5e74d8.
+// Or is a free data retrieval call binding the contract method 0xa22fcaa6.
 //
-// Solidity: function or() pure returns()
-func (_TestOpCode *TestOpCodeCallerSession) Or() error {
-	return _TestOpCode.Contract.Or(&_TestOpCode.CallOpts)
+// Solidity: function or(int256 a, int256 b) pure returns(int256)
+func (_TestOpCode *TestOpCodeCallerSession) Or(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Or(&_TestOpCode.CallOpts, a, b)
 }
 
-// Sdiv is a free data retrieval call binding the contract method 0xd5cfd270.
+// Sdiv is a free data retrieval call binding the contract method 0x397b3a49.
 //
-// Solidity: function sdiv() pure returns()
-func (_TestOpCode *TestOpCodeCaller) Sdiv(opts *bind.CallOpts) error {
+// Solidity: function sdiv(int256 a, int256 b) pure returns(int256)
+func (_TestOpCode *TestOpCodeCaller) Sdiv(opts *bind.CallOpts, a *big.Int, b *big.Int) (*big.Int, error) {
 	var out []interface{}
-	err := _TestOpCode.contract.Call(opts, &out, "sdiv")
+	err := _TestOpCode.contract.Call(opts, &out, "sdiv", a, b)
 
 	if err != nil {
-		return err
+		return *new(*big.Int), err
 	}
 
-	return err
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
 
 }
 
-// Sdiv is a free data retrieval call binding the contract method 0xd5cfd270.
+// Sdiv is a free data retrieval call binding the contract method 0x397b3a49.
 //
-// Solidity: function sdiv() pure returns()
-func (_TestOpCode *TestOpCodeSession) Sdiv() error {
-	return _TestOpCode.Contract.Sdiv(&_TestOpCode.CallOpts)
+// Solidity: function sdiv(int256 a, int256 b) pure returns(int256)
+func (_TestOpCode *TestOpCodeSession) Sdiv(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Sdiv(&_TestOpCode.CallOpts, a, b)
 }
 
-// Sdiv is a free data retrieval call binding the contract method 0xd5cfd270.
+// Sdiv is a free data retrieval call binding the contract method 0x397b3a49.
 //
-// Solidity: function sdiv() pure returns()
-func (_TestOpCode *TestOpCodeCallerSession) Sdiv() error {
-	return _TestOpCode.Contract.Sdiv(&_TestOpCode.CallOpts)
+// Solidity: function sdiv(int256 a, int256 b) pure returns(int256)
+func (_TestOpCode *TestOpCodeCallerSession) Sdiv(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Sdiv(&_TestOpCode.CallOpts, a, b)
 }
 
-// Sgt is a free data retrieval call binding the contract method 0x357a0ba2.
+// Sgt is a free data retrieval call binding the contract method 0x2912581c.
 //
-// Solidity: function sgt() pure returns()
-func (_TestOpCode *TestOpCodeCaller) Sgt(opts *bind.CallOpts) error {
+// Solidity: function sgt(int256 a, int256 b) pure returns(bool)
+func (_TestOpCode *TestOpCodeCaller) Sgt(opts *bind.CallOpts, a *big.Int, b *big.Int) (bool, error) {
 	var out []interface{}
-	err := _TestOpCode.contract.Call(opts, &out, "sgt")
+	err := _TestOpCode.contract.Call(opts, &out, "sgt", a, b)
 
 	if err != nil {
-		return err
+		return *new(bool), err
 	}
 
-	return err
+	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
+
+	return out0, err
 
 }
 
-// Sgt is a free data retrieval call binding the contract method 0x357a0ba2.
+// Sgt is a free data retrieval call binding the contract method 0x2912581c.
 //
-// Solidity: function sgt() pure returns()
-func (_TestOpCode *TestOpCodeSession) Sgt() error {
-	return _TestOpCode.Contract.Sgt(&_TestOpCode.CallOpts)
+// Solidity: function sgt(int256 a, int256 b) pure returns(bool)
+func (_TestOpCode *TestOpCodeSession) Sgt(a *big.Int, b *big.Int) (bool, error) {
+	return _TestOpCode.Contract.Sgt(&_TestOpCode.CallOpts, a, b)
 }
 
-// Sgt is a free data retrieval call binding the contract method 0x357a0ba2.
+// Sgt is a free data retrieval call binding the contract method 0x2912581c.
 //
-// Solidity: function sgt() pure returns()
-func (_TestOpCode *TestOpCodeCallerSession) Sgt() error {
-	return _TestOpCode.Contract.Sgt(&_TestOpCode.CallOpts)
+// Solidity: function sgt(int256 a, int256 b) pure returns(bool)
+func (_TestOpCode *TestOpCodeCallerSession) Sgt(a *big.Int, b *big.Int) (bool, error) {
+	return _TestOpCode.Contract.Sgt(&_TestOpCode.CallOpts, a, b)
 }
 
-// Slt is a free data retrieval call binding the contract method 0x1c408f25.
+// Sha is a free data retrieval call binding the contract method 0xf82f396f.
 //
-// Solidity: function slt() pure returns()
-func (_TestOpCode *TestOpCodeCaller) Slt(opts *bind.CallOpts) error {
+// Solidity: function sha(string a, string b) pure returns(bool)
+func (_TestOpCode *TestOpCodeCaller) Sha(opts *bind.CallOpts, a string, b string) (bool, error) {
 	var out []interface{}
-	err := _TestOpCode.contract.Call(opts, &out, "slt")
+	err := _TestOpCode.contract.Call(opts, &out, "sha", a, b)
 
 	if err != nil {
-		return err
+		return *new(bool), err
 	}
 
-	return err
+	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
+
+	return out0, err
 
 }
 
-// Slt is a free data retrieval call binding the contract method 0x1c408f25.
+// Sha is a free data retrieval call binding the contract method 0xf82f396f.
 //
-// Solidity: function slt() pure returns()
-func (_TestOpCode *TestOpCodeSession) Slt() error {
-	return _TestOpCode.Contract.Slt(&_TestOpCode.CallOpts)
+// Solidity: function sha(string a, string b) pure returns(bool)
+func (_TestOpCode *TestOpCodeSession) Sha(a string, b string) (bool, error) {
+	return _TestOpCode.Contract.Sha(&_TestOpCode.CallOpts, a, b)
 }
 
-// Slt is a free data retrieval call binding the contract method 0x1c408f25.
+// Sha is a free data retrieval call binding the contract method 0xf82f396f.
 //
-// Solidity: function slt() pure returns()
-func (_TestOpCode *TestOpCodeCallerSession) Slt() error {
-	return _TestOpCode.Contract.Slt(&_TestOpCode.CallOpts)
+// Solidity: function sha(string a, string b) pure returns(bool)
+func (_TestOpCode *TestOpCodeCallerSession) Sha(a string, b string) (bool, error) {
+	return _TestOpCode.Contract.Sha(&_TestOpCode.CallOpts, a, b)
 }
 
-// Smod is a free data retrieval call binding the contract method 0x18572920.
+// Shl is a free data retrieval call binding the contract method 0xbe9cdc52.
 //
-// Solidity: function smod() pure returns()
-func (_TestOpCode *TestOpCodeCaller) Smod(opts *bind.CallOpts) error {
+// Solidity: function shl(uint256 a) pure returns(uint256)
+func (_TestOpCode *TestOpCodeCaller) Shl(opts *bind.CallOpts, a *big.Int) (*big.Int, error) {
 	var out []interface{}
-	err := _TestOpCode.contract.Call(opts, &out, "smod")
+	err := _TestOpCode.contract.Call(opts, &out, "shl", a)
 
 	if err != nil {
-		return err
+		return *new(*big.Int), err
 	}
 
-	return err
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
 
 }
 
-// Smod is a free data retrieval call binding the contract method 0x18572920.
+// Shl is a free data retrieval call binding the contract method 0xbe9cdc52.
 //
-// Solidity: function smod() pure returns()
-func (_TestOpCode *TestOpCodeSession) Smod() error {
-	return _TestOpCode.Contract.Smod(&_TestOpCode.CallOpts)
+// Solidity: function shl(uint256 a) pure returns(uint256)
+func (_TestOpCode *TestOpCodeSession) Shl(a *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Shl(&_TestOpCode.CallOpts, a)
 }
 
-// Smod is a free data retrieval call binding the contract method 0x18572920.
+// Shl is a free data retrieval call binding the contract method 0xbe9cdc52.
 //
-// Solidity: function smod() pure returns()
-func (_TestOpCode *TestOpCodeCallerSession) Smod() error {
-	return _TestOpCode.Contract.Smod(&_TestOpCode.CallOpts)
+// Solidity: function shl(uint256 a) pure returns(uint256)
+func (_TestOpCode *TestOpCodeCallerSession) Shl(a *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Shl(&_TestOpCode.CallOpts, a)
 }
 
-// Sub is a free data retrieval call binding the contract method 0xc54124be.
+// Shr is a free data retrieval call binding the contract method 0x391e4dc1.
 //
-// Solidity: function sub() pure returns()
-func (_TestOpCode *TestOpCodeCaller) Sub(opts *bind.CallOpts) error {
+// Solidity: function shr(uint256 a) pure returns(uint256)
+func (_TestOpCode *TestOpCodeCaller) Shr(opts *bind.CallOpts, a *big.Int) (*big.Int, error) {
 	var out []interface{}
-	err := _TestOpCode.contract.Call(opts, &out, "sub")
+	err := _TestOpCode.contract.Call(opts, &out, "shr", a)
 
 	if err != nil {
-		return err
+		return *new(*big.Int), err
 	}
 
-	return err
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
 
 }
 
-// Sub is a free data retrieval call binding the contract method 0xc54124be.
+// Shr is a free data retrieval call binding the contract method 0x391e4dc1.
 //
-// Solidity: function sub() pure returns()
-func (_TestOpCode *TestOpCodeSession) Sub() error {
-	return _TestOpCode.Contract.Sub(&_TestOpCode.CallOpts)
+// Solidity: function shr(uint256 a) pure returns(uint256)
+func (_TestOpCode *TestOpCodeSession) Shr(a *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Shr(&_TestOpCode.CallOpts, a)
 }
 
-// Sub is a free data retrieval call binding the contract method 0xc54124be.
+// Shr is a free data retrieval call binding the contract method 0x391e4dc1.
 //
-// Solidity: function sub() pure returns()
-func (_TestOpCode *TestOpCodeCallerSession) Sub() error {
-	return _TestOpCode.Contract.Sub(&_TestOpCode.CallOpts)
+// Solidity: function shr(uint256 a) pure returns(uint256)
+func (_TestOpCode *TestOpCodeCallerSession) Shr(a *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Shr(&_TestOpCode.CallOpts, a)
 }
 
-// Xor is a free data retrieval call binding the contract method 0x5ada0c68.
+// Shr0 is a free data retrieval call binding the contract method 0x402e3313.
 //
-// Solidity: function xor() pure returns()
-func (_TestOpCode *TestOpCodeCaller) Xor(opts *bind.CallOpts) error {
+// Solidity: function shr(int256 a) pure returns(int256)
+func (_TestOpCode *TestOpCodeCaller) Shr0(opts *bind.CallOpts, a *big.Int) (*big.Int, error) {
 	var out []interface{}
-	err := _TestOpCode.contract.Call(opts, &out, "xor")
+	err := _TestOpCode.contract.Call(opts, &out, "shr0", a)
 
 	if err != nil {
-		return err
+		return *new(*big.Int), err
 	}
 
-	return err
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
 
 }
 
-// Xor is a free data retrieval call binding the contract method 0x5ada0c68.
+// Shr0 is a free data retrieval call binding the contract method 0x402e3313.
 //
-// Solidity: function xor() pure returns()
-func (_TestOpCode *TestOpCodeSession) Xor() error {
-	return _TestOpCode.Contract.Xor(&_TestOpCode.CallOpts)
+// Solidity: function shr(int256 a) pure returns(int256)
+func (_TestOpCode *TestOpCodeSession) Shr0(a *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Shr0(&_TestOpCode.CallOpts, a)
 }
 
-// Xor is a free data retrieval call binding the contract method 0x5ada0c68.
+// Shr0 is a free data retrieval call binding the contract method 0x402e3313.
 //
-// Solidity: function xor() pure returns()
-func (_TestOpCode *TestOpCodeCallerSession) Xor() error {
-	return _TestOpCode.Contract.Xor(&_TestOpCode.CallOpts)
+// Solidity: function shr(int256 a) pure returns(int256)
+func (_TestOpCode *TestOpCodeCallerSession) Shr0(a *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Shr0(&_TestOpCode.CallOpts, a)
+}
+
+// Slt is a free data retrieval call binding the contract method 0x42a08c38.
+//
+// Solidity: function slt(int256 a, int256 b) pure returns(bool)
+func (_TestOpCode *TestOpCodeCaller) Slt(opts *bind.CallOpts, a *big.Int, b *big.Int) (bool, error) {
+	var out []interface{}
+	err := _TestOpCode.contract.Call(opts, &out, "slt", a, b)
+
+	if err != nil {
+		return *new(bool), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
+
+	return out0, err
+
+}
+
+// Slt is a free data retrieval call binding the contract method 0x42a08c38.
+//
+// Solidity: function slt(int256 a, int256 b) pure returns(bool)
+func (_TestOpCode *TestOpCodeSession) Slt(a *big.Int, b *big.Int) (bool, error) {
+	return _TestOpCode.Contract.Slt(&_TestOpCode.CallOpts, a, b)
+}
+
+// Slt is a free data retrieval call binding the contract method 0x42a08c38.
+//
+// Solidity: function slt(int256 a, int256 b) pure returns(bool)
+func (_TestOpCode *TestOpCodeCallerSession) Slt(a *big.Int, b *big.Int) (bool, error) {
+	return _TestOpCode.Contract.Slt(&_TestOpCode.CallOpts, a, b)
+}
+
+// Smod is a free data retrieval call binding the contract method 0x75df4bb9.
+//
+// Solidity: function smod(int256 a, int256 b) pure returns(int256)
+func (_TestOpCode *TestOpCodeCaller) Smod(opts *bind.CallOpts, a *big.Int, b *big.Int) (*big.Int, error) {
+	var out []interface{}
+	err := _TestOpCode.contract.Call(opts, &out, "smod", a, b)
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// Smod is a free data retrieval call binding the contract method 0x75df4bb9.
+//
+// Solidity: function smod(int256 a, int256 b) pure returns(int256)
+func (_TestOpCode *TestOpCodeSession) Smod(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Smod(&_TestOpCode.CallOpts, a, b)
+}
+
+// Smod is a free data retrieval call binding the contract method 0x75df4bb9.
+//
+// Solidity: function smod(int256 a, int256 b) pure returns(int256)
+func (_TestOpCode *TestOpCodeCallerSession) Smod(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Smod(&_TestOpCode.CallOpts, a, b)
+}
+
+// Sub is a free data retrieval call binding the contract method 0xb67d77c5.
+//
+// Solidity: function sub(uint256 a, uint256 b) pure returns(uint256)
+func (_TestOpCode *TestOpCodeCaller) Sub(opts *bind.CallOpts, a *big.Int, b *big.Int) (*big.Int, error) {
+	var out []interface{}
+	err := _TestOpCode.contract.Call(opts, &out, "sub", a, b)
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// Sub is a free data retrieval call binding the contract method 0xb67d77c5.
+//
+// Solidity: function sub(uint256 a, uint256 b) pure returns(uint256)
+func (_TestOpCode *TestOpCodeSession) Sub(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Sub(&_TestOpCode.CallOpts, a, b)
+}
+
+// Sub is a free data retrieval call binding the contract method 0xb67d77c5.
+//
+// Solidity: function sub(uint256 a, uint256 b) pure returns(uint256)
+func (_TestOpCode *TestOpCodeCallerSession) Sub(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Sub(&_TestOpCode.CallOpts, a, b)
+}
+
+// Xor is a free data retrieval call binding the contract method 0xf1388b6f.
+//
+// Solidity: function xor(int256 a, int256 b) pure returns(int256)
+func (_TestOpCode *TestOpCodeCaller) Xor(opts *bind.CallOpts, a *big.Int, b *big.Int) (*big.Int, error) {
+	var out []interface{}
+	err := _TestOpCode.contract.Call(opts, &out, "xor", a, b)
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// Xor is a free data retrieval call binding the contract method 0xf1388b6f.
+//
+// Solidity: function xor(int256 a, int256 b) pure returns(int256)
+func (_TestOpCode *TestOpCodeSession) Xor(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Xor(&_TestOpCode.CallOpts, a, b)
+}
+
+// Xor is a free data retrieval call binding the contract method 0xf1388b6f.
+//
+// Solidity: function xor(int256 a, int256 b) pure returns(int256)
+func (_TestOpCode *TestOpCodeCallerSession) Xor(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _TestOpCode.Contract.Xor(&_TestOpCode.CallOpts, a, b)
 }

@@ -2,116 +2,89 @@ pragma solidity >=0.7.0 <0.9.0;
 
 contract Test {
 
-    function add() public pure {
-        uint256 a = 2;
-        uint256 b = 1;
-        a + b;
+    function add(uint256 a, uint256 b) public pure returns (uint256){
+        return a + b;
     }
 
-    function sub() public pure {
-        uint256 a = 2;
-        uint256 b = 1;
-        a - b;
+    function sub(uint256 a, uint256 b) public pure returns (uint256) {
+        return a - b;
     }
 
-    function mul() public pure {
-        uint256 a = 2;
-        uint256 b = 1;
-        a * b;
+    function mul(uint256 a, uint256 b) public pure returns (uint256) {
+        return a * b;
     }
 
-    function div() public pure {
-        uint256 a = 2;
-        uint256 b = 1;
-        a / b;
+    function div(uint256 a, uint256 b) public pure returns (uint256) {
+        return a / b;
     }
 
-    function sdiv() public pure {
-        int256 a = 2;
-        int256 b = 1;
-        a / b;
+    function sdiv(int256 a, int256 b) public pure returns (int256) {
+        return a / b;
     }
 
-    function mod() public pure {
-        uint256 a = 2;
-        uint256 b = 1;
-        a % b;
+    function mod(uint256 a, uint256 b) public pure returns (uint256) {
+        return a % b;
+    }
+
+    function smod(int256 a, int256 b) public pure returns (int256) {
+        return a % b;
     }
 
 
-    function smod() public pure {
-        int256 a = 2;
-        int256 b = 1;
-        a % b;
+    function exp(uint256 a, uint256 b) public pure returns (uint256) {
+        return a ** b;
     }
 
-    function exp() public pure {
-        uint256 a = 2;
-        uint256 b = 1;
-        a ** b;
+    function lt(uint256 a, uint256 b) public pure returns (bool){
+        return a < b;
     }
 
-    function and() public pure {
-        int256 a = 2;
-        int256 b = 1;
-        int c;
-        c = a & b;
+    function gt(uint256 a, uint256 b) public pure returns (bool){
+        return a > b;
     }
 
-    function or() public pure {
-        int256 a = 2;
-        int256 b = 1;
-        int256 c;
-        c = a | b;
+    function slt(int256 a, int256 b) public pure returns (bool){
+        return a < b;
     }
 
-    function xor() public pure {
-        int256 a = 2;
-        int256 b = 6;
-        int256 c;
-        c = a ^ b;
+    function sgt(int256 a, int256 b) public pure returns (bool){
+        return a > b;
     }
 
-    function not() public pure {
-        int256 a = 2;
-        int256 c;
-        c = ~a;
+    function eq(int256 a, int256 b) public pure returns (bool){
+        return a == b;
     }
 
-    function byteFun() public pure {
-        bytes32 a = "0x1";
-        bytes32 c;
-        c = a[1];
+    function iszero(int256 a) public pure returns (bool){
+        return a == 0;
     }
 
-    function lt() public pure {
-        uint256 a = 2;
-        uint256 b = 2;
-        bool c = a < b;
+    function and(int256 a, int256 b) public pure returns (int256){
+        return a & b;
     }
 
-    function gt() public pure {
-        uint256 a = 2;
-        uint256 b = 2;
-        bool c = a > b;
+    function or(int256 a, int256 b) public pure returns (int256){
+        return a | b;
     }
 
-    function slt() public pure {
-        int256 a = 2;
-        int256 b = 2;
-        bool c = a < b;
+    function xor(int256 a, int256 b) public pure returns (int256){
+        return a ^ b;
     }
 
-    function sgt() public pure {
-        int256 a = 2;
-        int256 b = 2;
-        bool c = a > b;
+    function not(int256 a) public pure returns (int256){
+        return ~a;
     }
 
-    function eq() public pure {
-        int256 a = 2;
-        int256 b = 2;
-        bool c = a == b;
+    function shl(uint256 a) public pure returns (uint256){
+        return a << 2;
+    }
+
+    function shr(uint256 a) public pure returns (uint256){
+        return a >> 2;
+    }
+
+    function sha(string memory a,string memory b) public pure returns(bool){
+        return keccak256(abi.encode(a)) == keccak256(abi.encode(b));
     }
 
 }
