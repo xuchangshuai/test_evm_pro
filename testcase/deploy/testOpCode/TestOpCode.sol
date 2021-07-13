@@ -83,7 +83,7 @@ contract Test {
         return a >> 2;
     }
 
-    function sha(string memory a,string memory b) public pure returns(bool){
+    function sha(string memory a, string memory b) public pure returns (bool){
         return keccak256(abi.encode(a)) == keccak256(abi.encode(b));
     }
 
