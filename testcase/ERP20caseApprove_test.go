@@ -42,7 +42,7 @@ func TestERC20_approve(t *testing.T) {
 		opts, err := bind.NewKeyedTransactorWithChainID(fromPrivate, chainId)
 		_checkErr(err)
 		opts.Nonce = big.NewInt(int64(nonce))
-		opts.GasPrice = big.NewInt(500)
+		opts.GasPrice = big.NewInt(500000000000)
 		opts.GasLimit = 3000000
 		_to1 := config.GetAddressList()[0]
 
@@ -64,7 +64,7 @@ func TestERC20_approve(t *testing.T) {
 		log.Printf("amount: %d", amount)
 
 		So(approveAmount.Cmp(amount) == 0, ShouldBeTrue)
-		useGas := big.NewInt(int64(receipt.CumulativeGasUsed))
+		useGas := big.NewInt(int64(receipt.CumulativeGasUsed*1000000000))
 		log.Printf("useGas: %d", useGas)
 		fromBalanceOngAfter := utils.GetBalance(fromAddress.String())
 
@@ -97,7 +97,7 @@ func TestERC20_approve(t *testing.T) {
 		opts, err := bind.NewKeyedTransactorWithChainID(fromPrivate, chainId)
 		_checkErr(err)
 		opts.Nonce = big.NewInt(int64(nonce))
-		opts.GasPrice = big.NewInt(500)
+		opts.GasPrice = big.NewInt(500000000000)
 		opts.GasLimit = 3000000
 		_to1 := config.GetAddressList()[0]
 
@@ -119,7 +119,7 @@ func TestERC20_approve(t *testing.T) {
 		log.Printf("amount: %d", amount)
 
 		So(approveAmount.Cmp(amount) == 0, ShouldBeTrue)
-		useGas := big.NewInt(int64(receipt.CumulativeGasUsed))
+		useGas := big.NewInt(int64(receipt.CumulativeGasUsed*1000000000))
 		log.Printf("useGas: %d", useGas)
 		fromBalanceOngAfter := utils.GetBalance(fromAddress.String())
 
@@ -152,7 +152,7 @@ func TestERC20_approve(t *testing.T) {
 		opts, err := bind.NewKeyedTransactorWithChainID(fromPrivate, chainId)
 		_checkErr(err)
 		opts.Nonce = big.NewInt(int64(nonce))
-		opts.GasPrice = big.NewInt(500)
+		opts.GasPrice = big.NewInt(500000000000)
 		opts.GasLimit = 3000000
 		_to1 := config.GetAddressList()[0]
 
@@ -177,7 +177,7 @@ func TestERC20_approve(t *testing.T) {
 
 		//合约未作该限制 故断言成功
 		So(approveAmount.Cmp(amount) == 0, ShouldBeTrue)
-		useGas := big.NewInt(int64(receipt.CumulativeGasUsed))
+		useGas := big.NewInt(int64(receipt.CumulativeGasUsed*1000000000))
 		log.Printf("useGas: %d", useGas)
 		fromBalanceOngAfter := utils.GetBalance(fromAddress.String())
 
@@ -211,7 +211,7 @@ func TestERC20_approve(t *testing.T) {
 		opts, err := bind.NewKeyedTransactorWithChainID(fromPrivate, chainId)
 		_checkErr(err)
 		opts.Nonce = big.NewInt(int64(nonce))
-		opts.GasPrice = big.NewInt(500)
+		opts.GasPrice = big.NewInt(500000000000)
 		opts.GasLimit = 3000000
 		_to1 := config.GetAddressList()[0]
 
@@ -234,7 +234,7 @@ func TestERC20_approve(t *testing.T) {
 
 		//合约未作该限制 故断言成功
 		So(approveAmount.Cmp(amount) == 0, ShouldBeTrue)
-		useGas := big.NewInt(int64(receipt.CumulativeGasUsed))
+		useGas := big.NewInt(int64(receipt.CumulativeGasUsed*1000000000))
 		log.Printf("useGas: %d", useGas)
 		fromBalanceOngAfter := utils.GetBalance(fromAddress.String())
 
@@ -268,7 +268,7 @@ func TestERC20_approve(t *testing.T) {
 		opts, err := bind.NewKeyedTransactorWithChainID(fromPrivate, chainId)
 		_checkErr(err)
 		opts.Nonce = big.NewInt(int64(nonce))
-		opts.GasPrice = big.NewInt(500)
+		opts.GasPrice = big.NewInt(500000000000)
 		opts.GasLimit = 3000000
 		_to1 := config.GetAddressList()[0]
 
@@ -291,7 +291,7 @@ func TestERC20_approve(t *testing.T) {
 
 		//合约未作该限制 故断言成功
 		So(approveAmount.Cmp(amount) == 0, ShouldBeTrue)
-		useGas := big.NewInt(int64(receipt.CumulativeGasUsed))
+		useGas := big.NewInt(int64(receipt.CumulativeGasUsed*1000000000))
 		log.Printf("useGas: %d", useGas)
 		fromBalanceOngAfter := utils.GetBalance(fromAddress.String())
 
@@ -325,7 +325,7 @@ func TestERC20_approve(t *testing.T) {
 		opts, err := bind.NewKeyedTransactorWithChainID(fromPrivate, chainId)
 		_checkErr(err)
 		opts.Nonce = big.NewInt(int64(nonce))
-		opts.GasPrice = big.NewInt(500)
+		opts.GasPrice = big.NewInt(500000000000)
 		opts.GasLimit = 3000000
 		_to1 := config.GetAddressList()[0]
 
@@ -350,7 +350,7 @@ func TestERC20_approve(t *testing.T) {
 
 		//合约未作该限制 故断言成功
 		So(approveAmount.Cmp(amount) == 0, ShouldBeTrue)
-		useGas := big.NewInt(int64(receipt.CumulativeGasUsed))
+		useGas := big.NewInt(int64(receipt.CumulativeGasUsed*1000000000))
 		log.Printf("useGas: %d", useGas)
 		fromBalanceOngAfter := utils.GetBalance(fromAddress.String())
 
@@ -360,8 +360,8 @@ func TestERC20_approve(t *testing.T) {
 }
 
 func checkFromAddressBalance(fromAddress string) {
-	if utils.GetBalance(fromAddress).Cmp(big.NewInt(int64(100000000000))) < 0 {
-		txHash, err := deploy.SendTransfer(config.FromPrivate, fromAddress, big.NewInt(100000000000), uint64(200000))
+	if utils.GetBalance(fromAddress).Cmp(big.NewInt(0).Mul(big.NewInt(int64(10000000000)),big.NewInt(int64(1000000000)))) < 0 {
+		txHash, err := deploy.SendTransfer(config.FromPrivate, fromAddress, big.NewInt(0).Mul(big.NewInt(int64(10000000000)),big.NewInt(int64(1000000000))), uint64(200000))
 		_checkErr(err)
 		re, err := utils.GetTransferInfoByHash(txHash)
 		_checkErr(err)

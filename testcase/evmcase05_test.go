@@ -70,7 +70,7 @@ func TestEVMTransfer009(t *testing.T) {
 		_checkErr(err)
 		opts.Value = amount
 		opts.Nonce = big.NewInt(int64(nonce))
-		opts.GasPrice = big.NewInt(500)
+		opts.GasPrice = big.NewInt(500000000000)
 		opts.GasLimit = 3000000
 
 		inputContract, err := inputCont.NewInputCont(common.HexToAddress(inputContractAddress), ethClient)
@@ -81,7 +81,8 @@ func TestEVMTransfer009(t *testing.T) {
 		receipt,err := utils.GetTransferInfoByHash(tx.Hash())
 		_checkErr(err)
 		fmt.Println("receipt: ", receipt)
-		useGas := big.NewInt(int64(receipt.CumulativeGasUsed))
+		useGas := big.NewInt(int64(receipt.CumulativeGasUsed*1000000000))
+		fmt.Println("useGas: ", useGas)
 
 		fromBalanceAfter := utils.GetBalance(  fromAddress.String())
 		managerBalanceAfter := utils.GetBalance(  "0x0000000000000000000000000000000000000007")

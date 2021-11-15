@@ -43,7 +43,7 @@ func TestERC20_transfer(t *testing.T) {
 		opts, err := bind.NewKeyedTransactorWithChainID(fromPrivate, chainId)
 		_checkErr(err)
 		opts.Nonce = big.NewInt(int64(nonce))
-		opts.GasPrice = big.NewInt(500)
+		opts.GasPrice = big.NewInt(500000000000)
 		opts.GasLimit = 3000000
 		_to1 := config.GetAddressList()[0]
 		//代币转账前
@@ -63,7 +63,7 @@ func TestERC20_transfer(t *testing.T) {
 		if receipt.Status != 1 {
 			panic("Tx fail!")
 		}
-		useGas := big.NewInt(int64(receipt.CumulativeGasUsed))
+		useGas := big.NewInt(int64(receipt.CumulativeGasUsed*1000000000))
 		log.Printf("useGas: %d", useGas)
 		fromBalanceOngAfter := utils.GetBalance(fromAddress.String())
 		log.Printf("fromBalanceOng: %d", fromBalanceOng)
@@ -109,7 +109,7 @@ func TestERC20_transfer(t *testing.T) {
 		opts, err := bind.NewKeyedTransactorWithChainID(fromPrivate, chainId)
 		_checkErr(err)
 		opts.Nonce = big.NewInt(int64(nonce))
-		opts.GasPrice = big.NewInt(500)
+		opts.GasPrice = big.NewInt(500000000000)
 		opts.GasLimit = 3000000
 		_to1 := config.GetAddressList()[1]
 		//代币转账前
@@ -126,7 +126,7 @@ func TestERC20_transfer(t *testing.T) {
 		receipt, err := utils.GetTransferInfoByHash(res.Hash())
 		_checkErr(err)
 		log.Printf("receipt.Status: %d", receipt.Status)
-		useGas := big.NewInt(int64(receipt.CumulativeGasUsed))
+		useGas := big.NewInt(int64(receipt.CumulativeGasUsed*1000000000))
 		fromBalanceOngAfter := utils.GetBalance(fromAddress.String())
 		//断言消耗ong
 		So(fromBalanceOng.Cmp(fromBalanceOngAfter.Add(fromBalanceOngAfter, useGas)) == 0, ShouldBeTrue)
@@ -183,7 +183,7 @@ func TestERC20_transfer(t *testing.T) {
 		opts, err := bind.NewKeyedTransactorWithChainID(fromCoinPrivate, chainId)
 		_checkErr(err)
 		opts.Nonce = big.NewInt(int64(nonce))
-		opts.GasPrice = big.NewInt(500)
+		opts.GasPrice = big.NewInt(500000000000)
 		opts.GasLimit = 3000000
 		_to1 := config.GetAddressList()[1]
 		//代币转账前
@@ -203,7 +203,7 @@ func TestERC20_transfer(t *testing.T) {
 		if receipt.Status != 1 {
 			panic("Tx fail!")
 		}
-		useGas := big.NewInt(int64(receipt.CumulativeGasUsed))
+		useGas := big.NewInt(int64(receipt.CumulativeGasUsed*1000000000))
 		log.Printf("useGas: %d", useGas)
 		fromBalanceOngAfter := utils.GetBalance(fromCoinAddress.String())
 		log.Printf("fromBalanceOng: %d", fromBalanceOng)
@@ -266,7 +266,7 @@ func TestERC20_transfer(t *testing.T) {
 		opts, err := bind.NewKeyedTransactorWithChainID(fromCoinPrivate, chainId)
 		_checkErr(err)
 		opts.Nonce = big.NewInt(int64(nonce))
-		opts.GasPrice = big.NewInt(500)
+		opts.GasPrice = big.NewInt(500000000000)
 		opts.GasLimit = 3000000
 		_to1 := config.GetAddressList()[1]
 		//代币转账前
@@ -286,7 +286,7 @@ func TestERC20_transfer(t *testing.T) {
 
 		//断言交易失败
 		So(receipt.Status == 0,ShouldBeTrue)
-		useGas := big.NewInt(int64(receipt.CumulativeGasUsed))
+		useGas := big.NewInt(int64(receipt.CumulativeGasUsed*1000000000))
 		log.Printf("useGas: %d", useGas)
 		fromBalanceOngAfter := utils.GetBalance(fromCoinAddress.String())
 		log.Printf("fromBalanceOng: %d", fromBalanceOng)
@@ -348,7 +348,7 @@ func TestERC20_transfer(t *testing.T) {
 		opts, err := bind.NewKeyedTransactorWithChainID(fromCoinPrivate, chainId)
 		_checkErr(err)
 		opts.Nonce = big.NewInt(int64(nonce))
-		opts.GasPrice = big.NewInt(500)
+		opts.GasPrice = big.NewInt(500000000000)
 		opts.GasLimit = 3000000
 		_to1 := config.GetAddressList()[1]
 		//代币转账前
@@ -367,7 +367,7 @@ func TestERC20_transfer(t *testing.T) {
 		if receipt.Status != 1 {
 			panic("Tx fail!")
 		}
-		useGas := big.NewInt(int64(receipt.CumulativeGasUsed))
+		useGas := big.NewInt(int64(receipt.CumulativeGasUsed*1000000000))
 		log.Printf("useGas: %d", useGas)
 		fromBalanceOngAfter := utils.GetBalance(fromCoinAddress.String())
 		log.Printf("fromBalanceOng: %d", fromBalanceOng)

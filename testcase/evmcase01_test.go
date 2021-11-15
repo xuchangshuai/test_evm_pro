@@ -39,7 +39,7 @@ func TestEVMTransfer001(t *testing.T) {
 			log.Printf("status :%d ", receipt.Status)
 			panic("TxTransaction fail !!!")
 		}
-		useGas := receipt.CumulativeGasUsed
+		useGas := receipt.CumulativeGasUsed*1000000000
 		log.Printf("useGas: %d", useGas)
 		fromBalanceAfter := utils.GetBalance(fromAddress.String())
 		toBalanceAfter := utils.GetBalance(toAddress)
@@ -71,6 +71,8 @@ func TestEVMTransfer002(t *testing.T) {
 
 		//交易前账户余额
 		fromBalance := utils.GetBalance(fromAddress.String())
+
+		log.Println(fromBalance)
 		toBalance := utils.GetBalance(toAddress)
 		managerBalance := utils.GetBalance("0x0000000000000000000000000000000000000007")
 
@@ -88,7 +90,7 @@ func TestEVMTransfer002(t *testing.T) {
 			log.Printf("status : %d", receipt.Status)
 			panic("TxTransaction fail !!!")
 		}
-		useGas := receipt.CumulativeGasUsed
+		useGas := receipt.CumulativeGasUsed* 1000000000
 		log.Printf("useGas %d", useGas)
 		fromBalanceAfter := utils.GetBalance(fromAddress.String())
 		toBalanceAfter := utils.GetBalance(toAddress)
@@ -101,6 +103,8 @@ func TestEVMTransfer002(t *testing.T) {
 		log.Printf("managerBalanceAfter: %d", managerBalanceAfter)
 		//1 断言from账户资金是否 = fromBalance1 = fromBalance - gasUsed - amount
 		fromBalance1 := fromBalanceAfter.Add(fromBalanceAfter, amount).Add(fromBalanceAfter, big.NewInt(int64(useGas)))
+		log.Printf("fromBalance: %d", fromBalance)
+		log.Printf("fromBalance1: %d", fromBalance1)
 		So(fromBalance.Cmp(fromBalance1) == 0, ShouldBeTrue)
 		//2 断言to账户资金是否 = toBalance + amount
 		So(toBalanceAfter.Cmp(toBalance.Add(toBalance, amount)) == 0, ShouldBeTrue)
@@ -136,7 +140,7 @@ func TestEVMTransfer003(t *testing.T) {
 			log.Printf("status : %d", receipt.Status)
 			panic("TxTransaction fail !!!")
 		}
-		useGas := receipt.CumulativeGasUsed
+		useGas := receipt.CumulativeGasUsed*1000000000
 		log.Printf("useGas: %d", useGas)
 		fromBalanceAfter := utils.GetBalance(fromAddress.String())
 		toBalanceAfter := utils.GetBalance(toAddress)
@@ -185,7 +189,7 @@ func TestEVMTransfer004(t *testing.T) {
 			log.Printf("status : %d ", receipt.Status)
 			panic("TxTransaction fail !!!")
 		}
-		useGas := receipt.CumulativeGasUsed
+		useGas := receipt.CumulativeGasUsed*1000000000
 		log.Printf("useGas: %d ", useGas)
 		fromBalanceAfter := utils.GetBalance(fromAddress.String())
 		toBalanceAfter := utils.GetBalance(toAddress)

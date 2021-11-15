@@ -156,7 +156,7 @@ func TestOpCode_(t *testing.T) {
 		_checkErr(err)
 		opts.Value = big.NewInt(1)
 		opts.Nonce = big.NewInt(int64(nonce))
-		opts.GasPrice = big.NewInt(500)
+		opts.GasPrice = big.NewInt(500000000000)
 		opts.GasLimit = 3000000
 		_, err = testOpCodeContract.GetValue(opts)
 		So(err, ShouldBeNil)
@@ -248,7 +248,7 @@ func TestOpCode_(t *testing.T) {
 		checkErr(err)
 		opts.Value = big.NewInt(0)
 		opts.Nonce = big.NewInt(int64(nonce))
-		opts.GasPrice = big.NewInt(500)
+		opts.GasPrice = big.NewInt(500000000000)
 		opts.GasLimit = 3000000
 		tx, err := testOpCodeContract.CallByFun(opts, testContract4Address)
 		So(err, ShouldBeNil)

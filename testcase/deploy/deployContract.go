@@ -43,7 +43,7 @@ func ContractDeploy(bin string, abi string, params ...interface{}) ethCommon.Has
 	opts, err := bind.NewKeyedTransactorWithChainID(testPrivateKey, chainId)
 	_checkErr(err)
 	opts.Nonce = big.NewInt(int64(nonce))
-	opts.GasPrice = big.NewInt(500)
+	opts.GasPrice = big.NewInt(500000000000)
 	opts.GasLimit = 3000000
 	binDecode, _ := hex.DecodeString(bin)
 	//fmt.Println("binDecode: ", binDecode)

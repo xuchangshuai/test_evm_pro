@@ -18,12 +18,13 @@ func TestEVMTransfer006(t *testing.T) {
 	Convey("Test 前置发一笔正常交易", t, func() {
 
 		toAddress := "0xf45505D1F482EBc8881dacA97B122B62771B9e1d"
-		amount := big.NewInt(1000000000)
+		amount := big.NewInt(1000000000000000000)
 		//  备注
 		fromPrivateKey := config.FromPrivate
 		fromPrivate, _ := crypto.HexToECDSA(fromPrivateKey)
 		fromAddress := crypto.PubkeyToAddress(fromPrivate.PublicKey)
-		log.Printf("fromAddress: %d", fromAddress)
+		//log.Printf("fromAddress: %d", fromAddress)
+		log.Printf("fromAddress: %s", fromAddress.String())
 
 		//交易前账户余额
 		fromBalance := utils.GetBalance(fromAddress.String())
@@ -45,7 +46,7 @@ func TestEVMTransfer006(t *testing.T) {
 			log.Printf("receipt.Status :  %d", receipt.Status)
 			panic("TxTransaction fail !!!")
 		}
-		useGas := big.NewInt(int64(receipt.CumulativeGasUsed))
+		useGas := big.NewInt(int64(receipt.CumulativeGasUsed*1000000000))
 		log.Printf("useGas %d", useGas)
 		fromBalanceAfter := utils.GetBalance(fromAddress.String())
 		toBalanceAfter := utils.GetBalance(toAddress)
@@ -67,7 +68,7 @@ func TestEVMTransfer006(t *testing.T) {
 	Convey("Test006 测试EIP155交易普通转账ong时 nonce值错误(nonce-1) ", t, func() {
 
 		toAddress := "0xf45505D1F482EBc8881dacA97B122B62771B9e1d"
-		amount := big.NewInt(500000000)
+		amount := big.NewInt(500000000000000000)
 		gasLimit := uint64(200000)
 		//  备注： 对应的MetaMask钱包第5个账户私钥
 		fromPrivateKey := config.FromPrivate
@@ -87,7 +88,7 @@ func TestEVMTransfer006(t *testing.T) {
 		nonce, err := ethClient.PendingNonceAt(context.Background(), fromAddress)
 		_checkErr(err)
 		_to := common.HexToAddress(toAddress)
-		gasPrice := big.NewInt(500)
+		gasPrice := big.NewInt(500000000000)
 		rawTx := types.NewTransaction(nonce-1, _to, amount, gasLimit, gasPrice, nil)
 
 		signer := types.NewEIP155Signer(chainId) //big.NewInt(1)//当前入参链id
@@ -110,7 +111,7 @@ func TestEVMTransfer006(t *testing.T) {
 	Convey("Test007 测试EIP155交易普通转账ong时 nonce值错误(nonce+1) ", t, func() {
 
 		toAddress := "0xf45505D1F482EBc8881dacA97B122B62771B9e1d"
-		amount := big.NewInt(500000000)
+		amount := big.NewInt(500000000000000000)
 		gasLimit := uint64(200000)
 		//  备注： 对应的MetaMask钱包第5个账户私钥
 		fromPrivateKey := config.FromPrivate
@@ -131,7 +132,7 @@ func TestEVMTransfer006(t *testing.T) {
 		nonce, err := ethClient.PendingNonceAt(context.Background(), fromAddress)
 		_checkErr(err)
 		_to := common.HexToAddress(toAddress)
-		gasPrice := big.NewInt(500)
+		gasPrice := big.NewInt(500000000000)
 		rawTx := types.NewTransaction(nonce+1, _to, amount, gasLimit, gasPrice, nil)
 
 		signer := types.NewEIP155Signer(chainId) //big.NewInt(1)//当前入参链id
@@ -176,8 +177,8 @@ func TestEVMTransfer006(t *testing.T) {
 		if err != nil {
 			panic(err)
 		}
-		useGas := big.NewInt(int64(receipt.CumulativeGasUsed)) //原nonce+=1case发送的交易收据
-		useGas1 := big.NewInt(int64(receipt2.CumulativeGasUsed))
+		useGas := big.NewInt(int64(receipt.CumulativeGasUsed*1000000000)) //原nonce+=1case发送的交易收据
+		useGas1 := big.NewInt(int64(receipt2.CumulativeGasUsed*1000000000))
 		managerBalanceAfter = utils.GetBalance("0x0000000000000000000000000000000000000007")
 		fromBalanceAfter = utils.GetBalance(fromAddress.String())
 		toBalanceAfter = utils.GetBalance(toAddress)

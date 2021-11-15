@@ -47,7 +47,7 @@ func TestERC20_transferFrom(t *testing.T) {
 		coinNonce, err := ethClient.PendingNonceAt(context.Background(), fromCoinAddress)
 		_checkErr(err)
 		optsCoin.Nonce = big.NewInt(int64(coinNonce))
-		optsCoin.GasPrice = big.NewInt(500)
+		optsCoin.GasPrice = big.NewInt(500000000000)
 		optsCoin.GasLimit = 3000000
 
 		fromAddressBalance, err := erc20Contract.BalanceOf(callOpts, fromAddress)
@@ -114,7 +114,7 @@ func TestERC20_transferFrom(t *testing.T) {
 		coinNonce, err := ethClient.PendingNonceAt(context.Background(), fromCoinAddress)
 		_checkErr(err)
 		optsCoin.Nonce = big.NewInt(int64(coinNonce))
-		optsCoin.GasPrice = big.NewInt(500)
+		optsCoin.GasPrice = big.NewInt(500000000000)
 		optsCoin.GasLimit = 3000000
 
 		fromAddressBalance, err := erc20Contract.BalanceOf(callOpts, fromAddress)
@@ -183,7 +183,7 @@ func TestERC20_transferFrom(t *testing.T) {
 		coinNonce, err := ethClient.PendingNonceAt(context.Background(), fromCoinAddress)
 		_checkErr(err)
 		optsCoin.Nonce = big.NewInt(int64(coinNonce))
-		optsCoin.GasPrice = big.NewInt(500)
+		optsCoin.GasPrice = big.NewInt(500000000000)
 		optsCoin.GasLimit = 3000000
 
 		fromAddressBalance, err := erc20Contract.BalanceOf(callOpts, fromAddress)
@@ -245,7 +245,7 @@ func TestERC20_transferFrom(t *testing.T) {
 		coinNonce, err := ethClient.PendingNonceAt(context.Background(), fromCoinAddress)
 		_checkErr(err)
 		optsCoin.Nonce = big.NewInt(int64(coinNonce))
-		optsCoin.GasPrice = big.NewInt(500)
+		optsCoin.GasPrice = big.NewInt(500000000000)
 		optsCoin.GasLimit = 3000000
 
 		fromAddressBalance, err := erc20Contract.BalanceOf(callOpts, fromAddress)
@@ -302,7 +302,7 @@ func checkFromAmount(_to common.Address) {
 	opts, err := bind.NewKeyedTransactorWithChainID(fromPrivate, chainId)
 	_checkErr(err)
 	opts.Nonce = big.NewInt(int64(nonce))
-	opts.GasPrice = big.NewInt(500)
+	opts.GasPrice = big.NewInt(500000000000)
 	opts.GasLimit = 3000000
 
 	amount, err := erc20Contract.Allowance(callOpts, fromAddress, _to)

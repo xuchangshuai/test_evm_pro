@@ -5,6 +5,7 @@ import (
 	"github.com/ethereum/go-ethereum/crypto"
 	. "github.com/smartystreets/goconvey/convey"
 	"math/big"
+	"reflect"
 	"test_evm/config"
 	"test_evm/testcase/deploy"
 	"test_evm/utils"
@@ -34,10 +35,11 @@ func TestEVMTransfer008(t *testing.T) {
 		}
 
 		fmt.Println("receipt: ", receipt)
-		deployContractUseGas := big.NewInt(int64(receipt.CumulativeGasUsed))
+		deployContractUseGas := big.NewInt(int64(receipt.CumulativeGasUsed*1000000000))
 		fmt.Println("deployContractUseGas: ", deployContractUseGas)
 		managerBalanceAfter := utils.GetBalance("0x0000000000000000000000000000000000000007")
 		fmt.Println("managerBalanceAfter: ", managerBalanceAfter)
+		fmt.Println(reflect.TypeOf(managerBalanceAfter))
 		//断言部署合约手续费
 		So(managerBalanceAfter.Cmp(managerBalance.Add(managerBalance, deployContractUseGas)) == 0, ShouldBeTrue)
 		if receipt.Status != 1 {
@@ -46,15 +48,15 @@ func TestEVMTransfer008(t *testing.T) {
 		}
 		//交易后账户余额
 		fromBalanceAfter := utils.GetBalance(fromAddress.String())
-		fromBalanceAfterRes := *fromBalanceAfter
+		fromBalanceAfterRes := utils.GetBalance(fromAddress.String())
 		fmt.Println("fromBalanceFirstAfter: ", fromBalanceAfter)
-		So(fromBalance.Cmp(fromBalanceAfterRes.Add(&fromBalanceAfterRes, deployContractUseGas)) == 0, ShouldBeTrue)
+		So(fromBalance.Cmp(fromBalanceAfterRes.Add(fromBalanceAfterRes, deployContractUseGas)) == 0, ShouldBeTrue)
 		contractAddress := receipt.ContractAddress
 		fmt.Println("contractAddress: ", contractAddress.String())
 		contractAddressBalance := utils.GetBalance(contractAddress.String())
 		fmt.Println("contractAddressBalance: ", contractAddressBalance)
 
-		amount := big.NewInt(1000000000)
+		amount := big.NewInt(1000000000000000000)
 		txHash, err := deploy.SendTransfer(fromPrivateKey, contractAddress.String(), amount, uint64(200000))
 		_checkErr(err)
 		txReceipt, err := utils.GetTransferInfoByHash(txHash)
@@ -65,16 +67,23 @@ func TestEVMTransfer008(t *testing.T) {
 			fmt.Println("txReceipt.Status : ", txReceipt.Status)
 			panic("TxTransaction fail !!!")
 		}
-		useGas := big.NewInt(int64(txReceipt.CumulativeGasUsed))
+		useGas := big.NewInt(0).Mul(big.NewInt(int64(txReceipt.CumulativeGasUsed)),big.NewInt(1000000000))
+		fmt.Println("useGas: ", useGas)
+		fmt.Println(reflect.TypeOf(useGas))
 		fromBalanceSecondAfter := utils.GetBalance(fromAddress.String())
+		fmt.Println("fromBalanceSecondAfter: ", fromBalanceSecondAfter)
 		contractAddressBalanceAfter := utils.GetBalance(contractAddress.String())
+		fmt.Println("contractAddressBalanceAfter: ", contractAddressBalanceAfter)
 		managerBalanceSecondAfter := utils.GetBalance("0x0000000000000000000000000000000000000007")
-
+		fmt.Println("managerBalanceSecondAfter: ", managerBalanceSecondAfter)
+		fmt.Println(reflect.TypeOf(managerBalanceSecondAfter))
 		//1 断言合约账户账户资金是否 = contractAddressBalance + amount
 		So(contractAddressBalanceAfter.Cmp(contractAddressBalance.Add(contractAddressBalance, amount)) == 0, ShouldBeTrue)
 		//2 断言治理合约地址是否正常获得消耗gas
 		So(managerBalanceSecondAfter.Cmp(managerBalanceAfter.Add(managerBalanceAfter, useGas)) == 0, ShouldBeTrue)
 		//3 from账户资金= fromBalanceAfter -fromBalanceSecondAfter -amount-useGas
+		fmt.Println("fromBalanceAfter: ", fromBalanceAfter)
+		//fmt.Println("After: ", fromBalanceSecondAfter.Add(fromBalanceSecondAfter, amount).Add(fromBalanceSecondAfter, useGas))
 		So(fromBalanceAfter.Cmp(fromBalanceSecondAfter.Add(fromBalanceSecondAfter, amount).Add(fromBalanceSecondAfter, useGas)) == 0, ShouldBeTrue)
 
 	})

@@ -14,7 +14,7 @@ func SendTransfer(fromPrivateKey string, to string, amount *big.Int, gasLimit ui
 
 	// 构建一个私链对象
 	ethClient := config.GetEthClient()
-	//查chainId
+	//查chainIdz
 	chainId, err := ethClient.ChainID(context.Background())
 	if err != nil {
 		return common.Hash{}, err
@@ -33,7 +33,7 @@ func SendTransfer(fromPrivateKey string, to string, amount *big.Int, gasLimit ui
 	}
 	log.Printf("nonce: %d", nonce)
 	_to := common.HexToAddress(to)
-	gasPrice := big.NewInt(500)
+	gasPrice := big.NewInt(500000000000)
 	//amount := big.NewInt(257000000000)
 	rawTx := types.NewTransaction(nonce, _to, amount, gasLimit, gasPrice, nil)
 	signer := types.NewEIP155Signer(chainId) //big.NewInt(1)//当前入参链id
