@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a84f5e50-aa3e-4ac8-bb07-4336d1b7a2ef" name="Default Changelist" comment="update sh">
-      <change afterPath="$PROJECT_DIR$/testcase/deploy/testOpCode/TestAddModAndMulMod.sol" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testcase/precision_ont.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/OpCode_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/OpCode_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/deploy/testOpCode/TestOpCode.sol" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/deploy/testOpCode/TestOpCode.sol" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,10 +16,11 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Go Application" />
+        <option value="Go File" />
       </list>
     </option>
   </component>
-  <component name="GOROOT" url="file://G:/Go" />
+  <component name="GOROOT" url="file:///opt/xcs/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -60,7 +61,7 @@
       <recent name="F:\test_project\test_evm_pro" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestOpCode_ in test_evm/testcase (2)">
+  <component name="RunManager" selected="Go Test.TestOpCode_ in test_evm/testcase">
     <configuration name="TestOpCode in test_evm/testcase/example/contract" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="test_evm_pro" />
       <working_directory value="$PROJECT_DIR$/testcase/example/contract" />
@@ -123,11 +124,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestOpCode_ in test_evm/testcase" />
         <item itemvalue="Go Test.TestOpCode_ in test_evm/testcase (2)" />
         <item itemvalue="Go Test.TestOpCode_ in test_evm/testcase (1)" />
         <item itemvalue="Go Test.TestOpCode in test_evm/testcase/example/contract" />
         <item itemvalue="Go Test.TestOpCode_ in test_evm/testcase/example/contract" />
-        <item itemvalue="Go Test.TestOpCode_ in test_evm/testcase" />
       </list>
     </recent_temporary>
   </component>

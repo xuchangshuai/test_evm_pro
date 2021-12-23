@@ -17,9 +17,9 @@ import (
 
 func TestOpCode_(t *testing.T) {
 	Convey("Test OpCode", t, func() {
-		testContractAbi, err := utils.ReadAll("deploy/TestOpCode/TestOpCode_sol_Test.abi")
+		testContractAbi, err := utils.ReadAll("deploy/testOpCode/TestOpCode_sol_Test.abi")
 		checkErr(err)
-		testContractBin, err := utils.ReadAll("deploy/TestOpCode/TestOpCode_sol_Test.bin")
+		testContractBin, err := utils.ReadAll("deploy/testOpCode/TestOpCode_sol_Test.bin")
 		checkErr(err)
 		hash := deploy.ContractDeploy(string(testContractBin), string(testContractAbi))
 		receipt, err := utils.GetTransferInfoByHash(hash)
