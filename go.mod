@@ -14,6 +14,7 @@ require (
 	//github.com/ontio/ontology-go-sdk v1.11.8
 	github.com/smartystreets/goconvey v1.6.4
 	github.com/stretchr/testify v1.7.0 // indirect
+	github.com/xuchangshuai/ontologyGoSdk v0.0.0-20211223085704-187d67d8a0d7 // indirect
 	google.golang.org/protobuf v1.25.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect
 )

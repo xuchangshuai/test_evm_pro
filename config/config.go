@@ -3,9 +3,12 @@ package config
 import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
+	ontology_go_sdk "github.com/xuchangshuai/ontologyGoSdk"
 )
 
 const URL string = "http://127.0.0.1:20339"
+
+const SDK_URL string = "http://127.0.0.1:20336"
 
 const FromPrivate string = "80a68081edc0aed4ddf8fa9f6a2e7cf8d0a69c998d4ef646f6446cbf4cfe9145"
 
@@ -35,4 +38,10 @@ func GetPrivateList() [5]string { // 账户对应的私钥
 		"f9499d66522b8b5bc6c3833ac3bc7d64437ff72e7d2880b88559368f664dee2a",
 		"4ed22b50a7dc27afedfeefb4127ad952dfeb47f838ffbc7745614a0a894a457a",
 	}
+}
+
+func GetSdk() *ontology_go_sdk.OntologySdk{
+	testOntSdk := ontology_go_sdk.NewOntologySdk()
+	testOntSdk.NewRpcClient().SetAddress(SDK_URL)
+	return testOntSdk
 }
