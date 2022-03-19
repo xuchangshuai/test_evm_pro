@@ -3,7 +3,7 @@ package config
 import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
-	ontology_go_sdk "github.com/xuchangshuai/ontologyGoSdk"
+	ontology_go_sdk "github.com/ontio/ontology-go-sdk"
 )
 
 const URL string = "http://127.0.0.1:20339"
